@@ -178,7 +178,13 @@
                           <i class="far fa-circle nav-icon"></i>
                           <p>Siswa</p>
                         </a>
-                      </li>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('gallery.index') }}" class="nav-link active">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Gallery</p>
+                        </a>
+                    </li>
                   </ul>
                 </li>
                 </li>
@@ -216,7 +222,7 @@
               <div class="row">
                 <div class="col-lg-3 col-6">
                   <!-- small box -->
-                  <div class="small-box bg-danger">
+                  <div class="small-box bg-light">
                     <div class="inner">
                     @php
                         $jumlah_artikel = \App\Models\Artikel::count();
@@ -234,7 +240,7 @@
 
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-white">
                       <div class="inner">
                       @php
                           $jumlah_siswa = \App\Models\Siswa::count();
@@ -247,6 +253,24 @@
                         <i class="fas fa-user"></i>
                       </div>
                       <a href="{{ route('siswa.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-white">
+                      <div class="inner">
+                      @php
+                          $jumlah_gallery = \App\Models\Gallery::count();
+                      @endphp
+                      <h3>{{ $jumlah_gallery }}</h3>
+
+                        <p>Gallery</p>
+                      </div>
+                      <div class="icon">
+                        <i class="fas fa-image"></i>
+                      </div>
+                      <a href="{{ route('gallery.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                   </div>
                 <!-- ./col -->

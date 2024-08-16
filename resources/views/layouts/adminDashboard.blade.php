@@ -173,6 +173,12 @@
                         <p>Artikel</p>
                       </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('siswa.index') }}" class="nav-link active">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Siswa</p>
+                        </a>
+                      </li>
                   </ul>
                 </li>
                 </li>
@@ -225,6 +231,24 @@
                     <a href="{{ route('artikel.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                   </div>
                 </div>
+
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                      <div class="inner">
+                      @php
+                          $jumlah_siswa = \App\Models\Siswa::count();
+                      @endphp
+                      <h3>{{ $jumlah_siswa }}</h3>
+
+                        <p>Siswa</p>
+                      </div>
+                      <div class="icon">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <a href="{{ route('siswa.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                  </div>
                 <!-- ./col -->
 
                 <!-- ./col -->
@@ -328,6 +352,28 @@
     <!-- Include SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     @include('sweetalert::alert')
+
+    @if (session('success'))
+    <script>
+        Swal.fire({
+            title: 'Success!',
+            text: "{{ session('success') }}",
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: "{{ session('error') }}",
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endif
 </body>
 
 </html>

@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('artikel', function (Blueprint $table) {
             $table->id(); // Ini secara default adalah kolom id (INT)(PK) (Auto Increment)
-            $table->string('writer', 255); // Kolom writer (VARCHAR(255)) (NOT NULL)
-            $table->string('title', 255); // Kolom title (VARCHAR(255)) (NOT NULL)
-            $table->text('content'); // Kolom content (TEXT) (NOT NULL)
+            $table->string('judul', 255); // Kolom writer (VARCHAR(255)) (NOT NULL)
+            $table->string('penulis', 255); // Kolom title (VARCHAR(255)) (NOT NULL)
+            $table->longText('konten'); // Kolom content (TEXT) (NOT NULL)
+            $table->string('thumbnail'); // Kolom title (VARCHAR(255)) (NOT NULL)
             $table->string('slug', 255); // Kolom slug (VARCHAR(255)) (NOT NULL)
             $table->timestamps(0); // Kolom created_at (TIMESTAMP) DEFAULT CURRENT_TIMESTAMP
         });

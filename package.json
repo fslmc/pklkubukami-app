@@ -11,6 +11,8 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "admin-lte": "3.0"
+        "admin-lte": "3.0",
+        "summernote": "^0.8.20",
+        "sweetalert2": "^11.12.4"
     }
 }

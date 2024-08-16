@@ -10,5 +10,5 @@ class Artikel extends Model
     use HasFactory;
 
     protected $table = 'artikel';
-    protected $fillable = ['writer', 'title', 'content', 'slug'];
+    protected $fillable = ['judul', 'penulis', 'konten', 'thumbnail', 'slug'];
 }

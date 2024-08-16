@@ -72,6 +72,9 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -79,11 +82,6 @@
 
     <div class="wrapper">
 
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-          <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-        </div>
-      
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
           <!-- Left navbar links -->
@@ -95,7 +93,7 @@
               <a href="/" class="nav-link">Home</a>
             </li>
           </ul>
-      
+
           <!-- Right navbar links -->
           <ul class="navbar-nav ml-auto">
             <!-- Navbar Search -->
@@ -122,27 +120,27 @@
 
         </nav>
         <!-- /.navbar -->
-      
+
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
           <!-- Brand Logo -->
           <a href="index3.html" class="brand-link">
-            <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <img src="" alt="KubuKami Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">KubuKami</span>
           </a>
-      
+
           <!-- Sidebar -->
           <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
               <div class="image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">KubuKami</a>
               </div>
             </div>
-      
+
             <!-- SidebarSearch Form -->
             <div class="form-inline">
               <div class="input-group" data-widget="sidebar-search">
@@ -154,7 +152,7 @@
                 </div>
               </div>
             </div>
-      
+
             <!-- Sidebar Menu -->
             <nav class="mt-2">
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -170,60 +168,13 @@
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="#" class="nav-link active">
+                      <a href="{{ route('artikel.index') }}" class="nav-link active">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Dashboard v1</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Dashboard v2</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Dashboard v3</p>
+                        <p>Artikel</p>
                       </a>
                     </li>
                   </ul>
                 </li>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
-                    <p>
-                      Forms
-                      <i class="fas fa-angle-left right"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>General Elements</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Advanced Elements</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Editors</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Validation</p>
-                      </a>
-                    </li>
-                  </ul>
                 </li>
               </ul>
             </nav>
@@ -231,7 +182,7 @@
           </div>
           <!-- /.sidebar -->
         </aside>
-      
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
           <!-- Content Header (Page header) -->
@@ -251,7 +202,7 @@
             </div><!-- /.container-fluid -->
           </div>
           <!-- /.content-header -->
-      
+
           <!-- Main content -->
           <section class="content">
             <div class="container-fluid">
@@ -259,63 +210,25 @@
               <div class="row">
                 <div class="col-lg-3 col-6">
                   <!-- small box -->
-                  <div class="small-box bg-info">
-                    <div class="inner">
-                      <h3>150</h3>
-      
-                      <p>New Orders</p>
-                    </div>
-                    <div class="icon">
-                      <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                  </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                  <!-- small box -->
-                  <div class="small-box bg-success">
-                    <div class="inner">
-                      <h3>53<sup style="font-size: 20px">%</sup></h3>
-      
-                      <p>Bounce Rate</p>
-                    </div>
-                    <div class="icon">
-                      <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                  </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                  <!-- small box -->
-                  <div class="small-box bg-warning">
-                    <div class="inner">
-                      <h3>44</h3>
-      
-                      <p>User Registrations</p>
-                    </div>
-                    <div class="icon">
-                      <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                  </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                  <!-- small box -->
                   <div class="small-box bg-danger">
                     <div class="inner">
-                      <h3>65</h3>
-      
-                      <p>Unique Visitors</p>
+                    @php
+                        $jumlah_artikel = \App\Models\Artikel::count();
+                    @endphp
+                    <h3>{{ $jumlah_artikel }}</h3>
+
+                      <p>Artikel</p>
                     </div>
                     <div class="icon">
-                      <i class="ion ion-pie-graph"></i>
+                        <i class="fas fa-book"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('artikel.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                   </div>
                 </div>
+                <!-- ./col -->
+
+                <!-- ./col -->
+
                 <!-- ./col -->
               </div>
               <!-- /.row -->
@@ -327,7 +240,7 @@
                   <div class="card">
                     <div class="card-header">
                       <h3 class="card-title">
-                        Sales
+
                       </h3>
                     </div><!-- /.card-header -->
                     <div class="card-body">
@@ -348,13 +261,13 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-          <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+          <strong>Copyright &copy; 2014-2021 <a href="">KubuKami</a>.</strong>
           All rights reserved.
           <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 3.2.0
           </div>
         </footer>
-      
+
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
           <!-- Control sidebar content goes here -->
@@ -388,6 +301,33 @@
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
 
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#konten').summernote({
+                height: 300,
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            });
+        });
+    </script>
+    <script src="<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.0/css/dataTables.dataTables.min.css">
+    <script src="https://cdn.datatables.net/2.1.0/js/dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
+    <!-- Include SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    @include('sweetalert::alert')
 </body>
 
 </html>

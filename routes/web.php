@@ -27,3 +27,11 @@ Route::prefix('siswa')->group(function (){
     Route::put('/update/{id}', [App\Http\Controllers\SiswaController::class, 'update'])->name('siswa.update');
     Route::delete('/delete/{id}', [App\Http\Controllers\SiswaController::class, 'delete'])->name('siswa.delete');
 });
+Route::prefix('testimoni')->group(function (){
+    Route::get('/',[App\Http\Controllers\TestimoniController::class,'index'])->name('testimoni.index');
+    Route::get('/create', [App\Http\Controllers\TestimoniController::class, 'create'])->name('testimoni.create');
+    Route::post('/post', [App\Http\Controllers\TestimoniController::class, 'post'])->name('testimoni.post');
+    Route::get('/edit/{id}', [App\Http\Controllers\TestimoniController::class, 'edit'])->name('testimoni.edit');
+    Route::put('/update/{id}', [App\Http\Controllers\TestimoniController::class, 'update'])->name('testimoni.update');
+    Route::delete('/delete/{id}', [App\Http\Controllers\TestimoniController::class, 'delete'])->name('testimoni.delete');
+});

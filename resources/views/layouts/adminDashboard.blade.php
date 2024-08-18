@@ -179,6 +179,12 @@
                           <p>Siswa</p>
                         </a>
                       </li>
+                    <li class="nav-item">
+                        <a href="{{ route('testimoni.index') }}" class="nav-link active">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Testimoni</p>
+                        </a>
+                      </li>
                   </ul>
                 </li>
                 </li>
@@ -231,24 +237,42 @@
                     <a href="{{ route('artikel.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                   </div>
                 </div>
-
+                
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
                     <div class="small-box bg-info">
-                      <div class="inner">
-                      @php
+                        <div class="inner">
+                            @php
                           $jumlah_siswa = \App\Models\Siswa::count();
                       @endphp
                       <h3>{{ $jumlah_siswa }}</h3>
-
-                        <p>Siswa</p>
-                      </div>
-                      <div class="icon">
-                        <i class="fas fa-user"></i>
-                      </div>
-                      <a href="{{ route('siswa.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                      
+                      <p>Siswa</p>
                     </div>
-                  </div>
+                    <div class="icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <a href="{{ route('siswa.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-success">
+                <div class="inner">
+                @php
+                    $jumlah_testimoni = \App\Models\Testimoni::count();
+                @endphp
+                <h3>{{ $jumlah_testimoni }}</h3>
+
+                  <p>Testimoni</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <a href="{{ route('testimoni.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
                 <!-- ./col -->
 
                 <!-- ./col -->

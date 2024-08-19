@@ -35,7 +35,7 @@ Route::prefix('testimoni')->group(function (){
     Route::get('/edit/{id}', [App\Http\Controllers\TestimoniController::class, 'edit'])->name('testimoni.edit');
     Route::put('/update/{id}', [App\Http\Controllers\TestimoniController::class, 'update'])->name('testimoni.update');
     Route::delete('/delete/{id}', [App\Http\Controllers\TestimoniController::class, 'delete'])->name('testimoni.delete');
-
+});
 
 Route::prefix('gallery')->group(function () {
     Route::get('/index', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery.index');

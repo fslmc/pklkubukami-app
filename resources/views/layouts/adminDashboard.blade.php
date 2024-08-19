@@ -191,6 +191,12 @@
                           <p>Sekolah</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('testimoni.index') }}" class="nav-link active">
+                            <i class="fas fa-comment"></i>
+                          <p>Testimoni</p>
+                        </a>
+                    </li>
                   </ul>
                 </li>
                 </li>
@@ -295,6 +301,24 @@
                         <i class="fas fa-school"></i>
                       </div>
                       <a href="{{ route('sekolah.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                      <div class="inner">
+                      @php
+                          $jumlah_testimoni = \App\Models\Testimoni::count();
+                      @endphp
+                      <h3>{{ $jumlah_testimoni }}</h3>
+
+                        <p>Testimoni</p>
+                      </div>
+                      <div class="icon">
+                        <i class="fas fa-comment"></i>
+                      </div>
+                      <a href="{{ route('testimoni.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                   </div>
                 <!-- ./col -->

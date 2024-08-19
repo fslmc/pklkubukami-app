@@ -37,7 +37,7 @@ class ArtikelController extends Controller
             'judul' => 'required|min:3',
             'penulis' => 'required|min:3',
             'konten' => 'required|min:3',
-            'thumbnail' => 'nullable|image|max:2048',
+            'thumbnail' => 'required|image|max:2048',
         ], [
             'judul.required' => 'Judul harus diisi',
             'penulis.required' => 'Penulis harus diisi',
@@ -47,7 +47,7 @@ class ArtikelController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withInput()->withErrors($validator);
+            return redirect()->route('artikel.index')->with('error', 'Data gagal disimpan harap isi dengan lengkap.');
         }
 
         try {
@@ -78,7 +78,7 @@ class ArtikelController extends Controller
             return redirect()->route('artikel.index')->with('success', 'Data Berhasil Disimpan.');
         } catch (QueryException $e) {
             // Tangani pengecualian jika terjadi kesalahan query
-            return redirect()->back()->with('error', 'Data Gagal Disimpan! ' . $e->getMessage());
+            return redirect()->route('artikel.index')->with('error', 'Data gagal disimpan.');
         }
     }
 
@@ -109,7 +109,7 @@ class ArtikelController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withInput()->with('error', 'Data Gagal DiUbah!');
+            return redirect()->route('artikel.index')->with('error', 'Data gagal disimpan.');
         }
 
         try {
@@ -140,7 +140,7 @@ class ArtikelController extends Controller
             return redirect()->route('artikel.index')->with('success', 'Data Berhasil DiUbah.');
         } catch (QueryException $e) {
             // Tangani pengecualian jika terjadi kesalahan query
-            return redirect()->back()->with('error', 'Data Gagal DiUbah! ' . $e->getMessage());
+            return redirect()->route('artikel.index')->with('error', 'Data gagal disimpan.');
         }
     }
 

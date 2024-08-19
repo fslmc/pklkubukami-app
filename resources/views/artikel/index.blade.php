@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ route('artikel.create') }}" class="btn btn-info">Tambah Data <i class="bi bi-plus-lg"></i></a>
+                    <a href="{{ route('artikel.create') }}" class="btn btn-info">Tambah Data <i class="fas fa-plus"></i></a>
                     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
                     <script src="https://cdn.datatables.net/2.1.0/js/jquery.dataTables.min.js"></script>
                     <table id="myTable" class="table datatable mt-3">

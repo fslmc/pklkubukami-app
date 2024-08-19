@@ -34,7 +34,7 @@
                         </div>
                         <div class="mb-3 col-12">
                             <button type="submit" class="btn btn-primary">Simpan<i class="bi bi-check"></i></button>
-                            <a href="{{ route('siswa.index') }}" class="btn btn-info">Kembali</a>
+                            <a href="{{ route('siswa.index') }}" class="btn btn-secondary">Kembali</a>
                         </div>
                     </form>
 

@@ -28,6 +28,15 @@ Route::prefix('siswa')->group(function (){
     Route::delete('/delete/{id}', [App\Http\Controllers\SiswaController::class, 'delete'])->name('siswa.delete');
 });
 
+Route::prefix('testimoni')->group(function (){
+    Route::get('/',[App\Http\Controllers\TestimoniController::class,'index'])->name('testimoni.index');
+    Route::get('/create', [App\Http\Controllers\TestimoniController::class, 'create'])->name('testimoni.create');
+    Route::post('/post', [App\Http\Controllers\TestimoniController::class, 'post'])->name('testimoni.post');
+    Route::get('/edit/{id}', [App\Http\Controllers\TestimoniController::class, 'edit'])->name('testimoni.edit');
+    Route::put('/update/{id}', [App\Http\Controllers\TestimoniController::class, 'update'])->name('testimoni.update');
+    Route::delete('/delete/{id}', [App\Http\Controllers\TestimoniController::class, 'delete'])->name('testimoni.delete');
+
+
 Route::prefix('gallery')->group(function () {
     Route::get('/index', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery.index');
     Route::get('/create', [App\Http\Controllers\GalleryController::class, 'create'])->name('gallery.create');
@@ -35,6 +44,7 @@ Route::prefix('gallery')->group(function () {
     Route::get('/edit/{id}', [App\Http\Controllers\GalleryController::class, 'edit'])->name('gallery.edit');
     Route::put('/update/{id}', [App\Http\Controllers\GalleryController::class, 'update'])->name('gallery.update');
     Route::delete('/delete/{id}', [App\Http\Controllers\GalleryController::class, 'delete'])->name('gallery.delete');
+
 });
 
 Route::prefix('sekolah')->group(function () {

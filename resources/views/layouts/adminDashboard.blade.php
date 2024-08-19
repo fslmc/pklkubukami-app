@@ -246,18 +246,19 @@
 
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-danger">
                     <div class="small-box bg-info">
-                        <div class="inner">
-                            @php
-                    <div class="small-box bg-white">
                       <div class="inner">
                       @php
-                          $jumlah_siswa = \App\Models\Siswa::count();
+                          $jumlah_siswa = \App\Models\Artikel::count();
                       @endphp
                       <h3>{{ $jumlah_siswa }}</h3>
 
-                      <p>Siswa</p>
+                        <p>Siswa</p>
+                      </div>
+                      <div class="icon">
+                          <i class="fas fa-user"></i>
+                      </div>
+                      <a href="{{ route('siswa.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                   </div>
 

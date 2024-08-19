@@ -169,20 +169,26 @@
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
                       <a href="{{ route('artikel.index') }}" class="nav-link active">
-                        <i class="far fa-circle nav-icon"></i>
+                        <i class="fas fa-book"></i>
                         <p>Artikel</p>
                       </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('siswa.index') }}" class="nav-link active">
-                          <i class="far fa-circle nav-icon"></i>
+                          <i class="fas fa-user"></i>
                           <p>Siswa</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('gallery.index') }}" class="nav-link active">
-                          <i class="far fa-circle nav-icon"></i>
+                            <i class="fas fa-image"></i>
                           <p>Gallery</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('sekolah.index') }}" class="nav-link active">
+                          <i class="fas fa-school"></i>
+                          <p>Sekolah</p>
                         </a>
                     </li>
                   </ul>
@@ -222,7 +228,7 @@
               <div class="row">
                 <div class="col-lg-3 col-6">
                   <!-- small box -->
-                  <div class="small-box bg-light">
+                  <div class="small-box bg-info">
                     <div class="inner">
                     @php
                         $jumlah_artikel = \App\Models\Artikel::count();
@@ -240,7 +246,7 @@
 
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-white">
+                    <div class="small-box bg-danger">
                       <div class="inner">
                       @php
                           $jumlah_siswa = \App\Models\Siswa::count();
@@ -258,7 +264,7 @@
 
                   <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-white">
+                    <div class="small-box bg-orange">
                       <div class="inner">
                       @php
                           $jumlah_gallery = \App\Models\Gallery::count();
@@ -271,6 +277,24 @@
                         <i class="fas fa-image"></i>
                       </div>
                       <a href="{{ route('gallery.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                      <div class="inner">
+                      @php
+                          $jumlah_sekolah = \App\Models\Sekolah::count();
+                      @endphp
+                      <h3>{{ $jumlah_sekolah }}</h3>
+
+                        <p>Sekolah</p>
+                      </div>
+                      <div class="icon">
+                        <i class="fas fa-school"></i>
+                      </div>
+                      <a href="{{ route('sekolah.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                   </div>
                 <!-- ./col -->

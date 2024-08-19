@@ -36,3 +36,12 @@ Route::prefix('gallery')->group(function () {
     Route::put('/update/{id}', [App\Http\Controllers\GalleryController::class, 'update'])->name('gallery.update');
     Route::delete('/delete/{id}', [App\Http\Controllers\GalleryController::class, 'delete'])->name('gallery.delete');
 });
+
+Route::prefix('sekolah')->group(function () {
+    Route::get('/index', [App\Http\Controllers\SekolahController::class, 'index'])->name('sekolah.index');
+    Route::get('/create', [App\Http\Controllers\SekolahController::class, 'create'])->name('sekolah.create');
+    Route::post('/post', [App\Http\Controllers\SekolahController::class, 'post'])->name('sekolah.post');
+    Route::get('/edit/{id}', [App\Http\Controllers\SekolahController::class, 'edit'])->name('sekolah.edit');
+    Route::put('/update/{id}', [App\Http\Controllers\SekolahController::class, 'update'])->name('sekolah.update');
+    Route::delete('/delete/{id}', [App\Http\Controllers\SekolahController::class, 'delete'])->name('sekolah.delete');
+});

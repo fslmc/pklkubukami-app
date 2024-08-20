@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
-use Laratrust\Models\Role as RoleModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Role extends RoleModel
+class Role extends Model
 {
-    public $guarded = [];
+    use HasFactory;
+
+    protected $fillable = ['name'];
 }

@@ -6,13 +6,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laratrust\Contracts\LaratrustUser;
-use Laratrust\Traits\HasRolesAndPermissions;
 
-class User extends Authenticatable implements LaratrustUser
+class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-    use HasRolesAndPermissions;
     /**
      * The attributes that are mass assignable.
      *
@@ -46,4 +43,9 @@ class User extends Authenticatable implements LaratrustUser
             'password' => 'hashed',
         ];
     }
+
+    public function roles()
+{
+    return $this->belongsToMany(Role::class, 'user_role');
+}
 }

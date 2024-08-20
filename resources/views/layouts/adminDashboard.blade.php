@@ -209,6 +209,25 @@
                   </ul>
                 </li>
                 </li>
+
+                {{-- Admin Only Nav --}}
+                <li class="nav-item menu-open">
+                  <a href="#" class="nav-link active">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                      Admin Only
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{ route('roles.index') }}" class="nav-link active">
+                        <i class="fas fa-user"></i>
+                        <p>Manage User</p>
+                      </a>
+                  </li>
+                  </ul>
+                </li>
               </ul>
             </nav>
             <!-- /.sidebar-menu -->

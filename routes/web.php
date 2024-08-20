@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\UserManagementController;
 
 Route::get('/', function () {
     return view('main.homepage');
@@ -22,6 +23,7 @@ Route::get('/dashboard', function () {
     return view('layouts.adminDashboard');
 });
 
+// List Artikel/Blog
 Route::prefix('artikel')->group(function () {
     Route::get('/index', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel.index');
     Route::get('/create', [App\Http\Controllers\ArtikelController::class, 'create'])->name('artikel.create');
@@ -31,6 +33,7 @@ Route::prefix('artikel')->group(function () {
     Route::delete('/delete/{id}', [App\Http\Controllers\ArtikelController::class, 'delete'])->name('artikel.delete');
 });
 
+// List Siswa pkl
 Route::prefix('siswa')->group(function (){
     Route::get('/',[App\Http\Controllers\SiswaController::class,'index'])->name('siswa.index');
     Route::get('/create', [App\Http\Controllers\SiswaController::class, 'create'])->name('siswa.create');
@@ -40,6 +43,7 @@ Route::prefix('siswa')->group(function (){
     Route::delete('/delete/{id}', [App\Http\Controllers\SiswaController::class, 'delete'])->name('siswa.delete');
 });
 
+// List Testimoni
 Route::prefix('testimoni')->group(function (){
     Route::get('/',[App\Http\Controllers\TestimoniController::class,'index'])->name('testimoni.index');
     Route::get('/create', [App\Http\Controllers\TestimoniController::class, 'create'])->name('testimoni.create');
@@ -49,6 +53,7 @@ Route::prefix('testimoni')->group(function (){
     Route::delete('/delete/{id}', [App\Http\Controllers\TestimoniController::class, 'delete'])->name('testimoni.delete');
 });
 
+// List Galeri
 Route::prefix('gallery')->group(function () {
     Route::get('/index', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery.index');
     Route::get('/create', [App\Http\Controllers\GalleryController::class, 'create'])->name('gallery.create');
@@ -59,6 +64,7 @@ Route::prefix('gallery')->group(function () {
 
 });
 
+// List Sekolah
 Route::prefix('sekolah')->group(function () {
     Route::get('/index', [App\Http\Controllers\SekolahController::class, 'index'])->name('sekolah.index');
     Route::get('/create', [App\Http\Controllers\SekolahController::class, 'create'])->name('sekolah.create');
@@ -68,12 +74,19 @@ Route::prefix('sekolah')->group(function () {
     Route::delete('/delete/{id}', [App\Http\Controllers\SekolahController::class, 'delete'])->name('sekolah.delete');
 });
 
+// Upload Tugas ke Google Drive
 Route::prefix('upload-tugas')->group(function () {
     Route::post('/upload', [FileUploadController::class, 'store'])->name('file.upload');
     Route::get('/create', [FileUploadController::class, 'create'])->name('file.create');
     Route::get('/history', [FileUploadController::class, 'index'])->name('file.history');
 
 
+});
+
+// Admin Mengelola User, Mengubah Role.
+Route::prefix('user-list')->group(function(){
+    Route::get('/index', [UserManagementController::class, 'index'])->name('roles.index');
+    Route::put('/role-management/{user}', [UserManagementController::class, 'update'])->name('roles.update');
 });
 
 require __DIR__.'/auth.php';

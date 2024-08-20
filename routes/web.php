@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FileUploadController;
 
 Route::get('/', function () {
     return view('main.homepage');
@@ -54,4 +55,12 @@ Route::prefix('sekolah')->group(function () {
     Route::get('/edit/{id}', [App\Http\Controllers\SekolahController::class, 'edit'])->name('sekolah.edit');
     Route::put('/update/{id}', [App\Http\Controllers\SekolahController::class, 'update'])->name('sekolah.update');
     Route::delete('/delete/{id}', [App\Http\Controllers\SekolahController::class, 'delete'])->name('sekolah.delete');
+});
+
+Route::prefix('upload-tugas')->group(function () {
+    Route::post('/upload', [FileUploadController::class, 'store'])->name('file.upload');
+    Route::get('/create', [FileUploadController::class, 'create'])->name('file.create');
+    Route::get('/history', [FileUploadController::class, 'index'])->name('file.history');
+
+
 });

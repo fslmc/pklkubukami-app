@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.2",
         "ezyang/htmlpurifier": "^4.17",
+        "google/apiclient": "^2.17",
         "jeroennoten/laravel-adminlte": "*",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",

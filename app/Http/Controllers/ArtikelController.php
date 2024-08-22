@@ -120,6 +120,17 @@ class ArtikelController extends Controller
                 $fileName = time() . '.' . $request->thumbnail->extension();
                 $request->thumbnail->move(public_path('assets/artikel-thumbnail'), $fileName);
                 $filePath = '/assets/artikel-thumbnail/' . $fileName;
+
+                // Hapus foto lama jika ada
+                if ($artikel->thumbnail != '/assets/img/card.jpg') {
+                    unlink(public_path($artikel->thumbnail));
+                }
+            } elseif ($request->input('unset_thumbnail') == 'on') {
+                // Hapus foto jika checkbox unset_thumbnail dicentang
+                $filePath = '/assets/img/card.jpg';
+                if ($artikel->thumbnail != '/assets/img/card.jpg') {
+                    unlink(public_path($artikel->thumbnail));
+                }
             }
 
             // Buat slug dari judul
@@ -150,6 +161,11 @@ class ArtikelController extends Controller
         $artikel = Artikel::find($ids);
 
         if ($artikel) {
+            // Hapus foto jika ada
+            if ($artikel->thumbnail != '/assets/img/card.jpg') {
+                unlink(public_path($artikel->thumbnail));
+            }
+
             $artikel->delete();
             return redirect()->back()->with('success', 'Data Berhasil Dihapus.');
         } else {

@@ -121,6 +121,11 @@ class GalleryController extends Controller
                 $fileName = time() . '.' . $request->foto->extension();
                 $request->foto->move(public_path('assets/gallery-foto'), $fileName);
                 $filePath = '/assets/gallery-foto/' . $fileName;
+
+                // Hapus foto lama jika ada
+                if ($gallery->foto != '/assets/img/card.jpg') {
+                    unlink(public_path($gallery->foto));
+                }
             }
 
             // Buat slug dari judul
@@ -151,6 +156,11 @@ class GalleryController extends Controller
         $gallery = Gallery::find($ids);
 
         if ($gallery) {
+            // Hapus foto jika ada
+            if ($gallery->foto != '/assets/img/card.jpg') {
+                unlink(public_path($gallery->foto));
+            }
+
             $gallery->delete();
             return redirect()->back()->with('success', 'Data Berhasil Dihapus.');
         } else {

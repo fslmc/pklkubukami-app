@@ -114,6 +114,11 @@ class TestimoniController extends Controller
                 $fileName = time() . '.' . $request->image_url->extension();
                 $request->image_url->move(public_path('assets/image_url'), $fileName);
                 $filePath = '/assets/image_url/' . $fileName;
+
+                // Hapus foto lama jika ada
+                if ($testimoni->image_url != '/assets/img/card.jpg') {
+                    unlink(public_path($testimoni->image_url));
+                }
             }
 
             // Buat slug dari judul
@@ -142,6 +147,11 @@ class TestimoniController extends Controller
         $testimoni = Testimoni::find($ids);
 
         if ($testimoni) {
+            // Hapus foto jika ada
+            if ($testimoni->image_url != '/assets/img/card.jpg') {
+                unlink(public_path($testimoni->image_url));
+            }
+
             $testimoni->delete();
             return redirect()->back()->with('success', 'Data Berhasil Dihapus.');
         } else {

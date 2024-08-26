@@ -12,11 +12,18 @@ class FileUploadController extends Controller
 
     public function index()
     {
-        // $uploadHistories = UploadHistory::where('user_id', Auth::id())->get();
-        $uploadHistories = UploadHistory::all();
+        $uploadHistories = UploadHistory::where('user_id', Auth::id())->get();
 
         // return view('gdrive.index', compact('uploadHistories'));
         return view('gdrive.index', compact('uploadHistories'));
+    }
+
+    public function adminIndex()
+    {
+        $uploadHistories = UploadHistory::all();
+
+        // return view('gdrive.index', compact('uploadHistories'));
+        return view('admin.gdrive.index', compact('uploadHistories'));
     }
 
     public function create(){
@@ -36,7 +43,7 @@ class FileUploadController extends Controller
 
         // Save the upload history
         $uploadHistory = new UploadHistory();
-        // $uploadHistory->user_id = Auth::id(); // Get the authenticated user's ID
+        $uploadHistory->user_id = Auth::id(); // Get the authenticated user's ID
         $uploadHistory->file_name = $file->getClientOriginalName();
         $uploadHistory->google_drive_file_id = $uploadedFile->id;
         $uploadHistory->google_drive_file_link = "https://drive.google.com/file/d/{$uploadedFile->id}/view";

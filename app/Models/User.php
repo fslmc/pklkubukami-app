@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -15,6 +16,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
     protected $fillable = [
         'name',
         'email',
@@ -45,7 +47,21 @@ class User extends Authenticatable
     }
 
     public function roles()
-{
+    {
     return $this->belongsToMany(Role::class, 'user_role');
-}
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->roles()->where('name', 'admin')->exists();
+    }
+
+    public function hasRole($roles): bool
+    {
+        if (is_string($roles)) {
+            $roles = [$roles];
+        }
+
+        return $this->roles()->whereIn('name', $roles)->exists();
+    }
 }

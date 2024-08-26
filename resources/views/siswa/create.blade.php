@@ -22,7 +22,12 @@
                         </div>
                         <div class="mb-3 col-12">
                             <label for="sekolah" class="form-label">Sekolah<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="sekolah" name="sekolah" placeholder="Sekolah">
+                            <select class="form-control" name="sekolah_id" id="sekolah_id" required>
+                                <option value="">-- Pilih --</option>
+                                @foreach ($sekolahs as $sekolah)
+                                    <option value="{{ $sekolah->id }}">{{ $sekolah->nama_sekolah }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mb-3 col-12">
                             <label for="jurusan" class="form-label">Jurusan<span class="text-danger">*</span></label>

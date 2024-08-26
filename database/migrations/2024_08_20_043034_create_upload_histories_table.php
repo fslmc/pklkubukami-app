@@ -15,14 +15,14 @@ class CreateUploadHistoriesTable extends Migration
     {
         Schema::create('upload_histories', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('file_name');
             $table->string('google_drive_file_id');
             $table->string('google_drive_file_link');
             $table->timestamps();
 
             // Define the foreign key constraint
-            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

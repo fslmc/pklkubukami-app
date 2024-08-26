@@ -9,6 +9,7 @@ use App\Models\Testimoni;
 use Illuminate\Database\QueryException;
 use HTMLPurifier;
 use RealReshid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
 
 class TestimoniController extends Controller
 {
@@ -66,6 +67,7 @@ class TestimoniController extends Controller
 
             // Simpan testimoni
             $testimoni = new Testimoni();
+            $testimoni->user_id = Auth::id();
             $testimoni->judul = $request->input('judul');
             $testimoni->content = $content;
             $testimoni->image_url = $filePath;

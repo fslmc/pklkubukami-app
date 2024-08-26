@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('jenis_kelamin');
-            $table->string('sekolah');
+            $table->unsignedBigInteger('sekolah_id')->nullable();
             $table->string('jurusan');
             $table->string('tanggal');
             $table->timestamps();
+
+            $table->foreign('sekolah_id')->references('id')->on('sekolah')->onDelete('cascade');
         });
     }
 

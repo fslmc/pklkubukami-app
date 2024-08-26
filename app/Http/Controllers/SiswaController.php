@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Sekolah;
 use App\Models\Siswa;
 
 class SiswaController extends Controller
@@ -14,9 +15,12 @@ class SiswaController extends Controller
         return view('siswa.index', compact('data'));
     }
 
+    
+
     public function create()
     {
-        return view('siswa.create');
+        $sekolahs = Sekolah::all();
+        return view('siswa.create', compact('sekolahs'));
     }
 
     public function post(Request $request)
@@ -37,9 +41,10 @@ class SiswaController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nama' => 'required|min:3',
-            'jenis_kelamin' => 'required|min:3',
+            'jenis_kelamin' => 'required',
+            'sekolah_id' => 'required',
             'sekolah' => 'required|min:3',
-            'jurusan' => 'required|min:3',
+            'jurusan' => 'required',
             'tanggal' => 'required|min:3',
         ], [
             'nama.required' => 'Nama harus diisi',
@@ -59,7 +64,7 @@ class SiswaController extends Controller
         $siswa = new Siswa();
         $siswa->nama = $request->input('nama');
         $siswa->jenis_kelamin = $request->input('jenis_kelamin');
-        $siswa->sekolah = $request->input('sekolah');
+        $siswa->sekolah_id = $request->input('sekolah_id');
         $siswa->jurusan = $request->input('jurusan');
         $siswa->tanggal = $request->input('tanggal');
         $siswa->save();
@@ -71,7 +76,8 @@ class SiswaController extends Controller
     {
         $ids = \Crypt::decrypt($id);
         $siswa = Siswa::find($ids);
-        return view('siswa.edit', compact('siswa'));
+        $sekolahs = Sekolah::all();
+        return view('siswa.edit', compact('siswa', 'sekolahs'));
     }
 
     public function update(Request $request, $id)
@@ -82,7 +88,7 @@ class SiswaController extends Controller
     $validator = Validator::make($request->all(), [
         'nama' => 'required|min:3|max:255',
         'jenis_kelamin' => 'required|in:L,P',
-        'sekolah' => 'required|min:3|max:255',
+        'sekolah_id' => 'required|exists:sekolah,id',
         'jurusan' => 'required|min:3|max:255',
         'tanggal' => 'required|date',
     ]);
@@ -97,7 +103,7 @@ class SiswaController extends Controller
         $siswa->update([
             'nama' => $request->input('nama'),
             'jenis_kelamin' => $request->input('jenis_kelamin'),
-            'id_sekolah' => $request->input('sekolah'),
+            'sekolah_id' => $request->input('sekolah_id'),
             'jurusan' => $request->input('jurusan'),
             'tanggal' => $request->input('tanggal'),
         ]);

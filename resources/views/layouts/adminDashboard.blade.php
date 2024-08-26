@@ -95,6 +95,16 @@
             <li class="nav-item d-none d-sm-inline-block">
               <a href="/" class="nav-link">Home</a>
             </li>
+            <li>
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </x-dropdown-link>
+            </form>
+            </li>
           </ul>
 
           <!-- Right navbar links -->
@@ -225,7 +235,13 @@
                         <i class="fas fa-user"></i>
                         <p>Manage User</p>
                       </a>
-                  </li>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ route('admin.gdrive.index') }}" class="nav-link active">
+                        <i class="fas fa-user"></i>
+                        <p>Manage Pengumpulan Tugas</p>
+                      </a>
+                    </li>
                   </ul>
                 </li>
               </ul>
@@ -283,7 +299,7 @@
                     <div class="small-box bg-info">
                       <div class="inner">
                       @php
-                          $jumlah_siswa = \App\Models\Artikel::count();
+                          $jumlah_siswa = \App\Models\Siswa::count();
                       @endphp
                       <h3>{{ $jumlah_siswa }}</h3>
 
@@ -443,7 +459,7 @@
             });
         });
     </script>
-    <script src="<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>"></script>
+    <script src="<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.0/css/dataTables.dataTables.min.css">
     <script src="https://cdn.datatables.net/2.1.0/js/dataTables.min.js"></script>
     <script>

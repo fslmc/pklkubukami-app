@@ -7,17 +7,17 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{route('siswa.create')}}" class="btn btn-info">Tambah Data <i class="fas fa-user-plus"></i></a>
+                        <a href="{{route('file.create')}}" class="btn btn-info">Upload File<i class="fas fa-file"></i></a>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#helpModal">Help/Guide</button>
 
                         <table id="myTable" class="table datatable mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">No.</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Jenis Kelamin</th>
-                                    <th scope="col">Sekolah</th>
-                                    <th scope="col">Jurusan</th>
-                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Nama File</th>
+                                    <th scope="col">Timestamp</th>
+                                    <th scope="col">Link Google Drive</th>
+                                    <th scope="col">Pengunggah</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -25,20 +25,19 @@
                                 @php
                                     $no = 1;
                                 @endphp
-                                @foreach ($data as $d)
+                                @foreach ($uploadHistories as $history)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
-                                    <td>{{ $d->nama }}</td>
-                                    <td>{{ $d->jenis_kelamin }}</td>
-                                    <td>{{ $d->sekolah->nama_sekolah }}</td>
-                                    <td>{{ $d->jurusan }}</td>
-                                    <td>{{ $d->tanggal }}</td>
+                                    <td>{{ $history->file_name }}</td>
+                                    <td>{{ $history->created_at }}</td>
+                                    <td><a href="{{ $history->google_drive_file_link }}" target="_blank">View File</a></td>
+                                    <td>{{ $history->user->name }}</td>
                                     <td>
-                                        <a href="{{route('siswa.edit',Crypt::encrypt($d->id))}}"
+                                        <a href="#"
                                             class="btn btn-primary btn-sm" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Edit Siswa">
                                             <i class="fas fa-pen"></i></a>
-                                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="tooltip"
+                                        {{-- <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Hapus Data"
                                             onclick="event.preventDefault();
                                             Swal.fire({
@@ -53,13 +52,13 @@
                                                     document.getElementById('delete-form-{{ $d->id }}').submit();
                                                 }
                                             });"><i
-                                            class="fas fa-trash"></i></a>
-                                        <form id="delete-form-{{ $d->id }}"
-                                            action="{{ route('siswa.delete', Crypt::encrypt($d->id)) }}"
+                                            class="fas fa-trash"></i></a> --}}
+                                        {{-- <form id="delete-form-{{ $d->id }}"
+                                            action="{{ route('sekolah.delete', Crypt::encrypt($d->id)) }}"
                                             method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
                                 @endforeach
@@ -79,3 +78,35 @@
     </section>
 
 @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="helpModalLabel">Help/Guide</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Add your help/guide content here -->
+          <p>This is a sample help/guide content.</p>
+          <ul>
+            <li>Step 1: Do something</li>
+            <li>Step 2: Do something else</li>
+            <li>Step 3: Do something more</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('#helpModal').modal('hide');
+    });
+  </script>

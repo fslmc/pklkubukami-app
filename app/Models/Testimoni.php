@@ -10,5 +10,10 @@ class Testimoni extends Model
     use HasFactory;
 
     protected $table = 'testimoni';
-    protected $fillable = ['judul', 'content', 'image_url'];
+    protected $fillable = ['user_id', 'judul', 'content', 'image_url'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

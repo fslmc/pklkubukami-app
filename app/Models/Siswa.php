@@ -10,5 +10,10 @@ class Siswa extends Model
     use HasFactory;
 
     protected $table = 'siswa';
-    protected $fillable = ['nama', 'jenis_kelamin', 'sekolah', 'jurusan', 'tanggal'];
+    protected $fillable = ['nama', 'jenis_kelamin', 'sekolah_id', 'jurusan', 'tanggal'];
+
+    public function sekolah()
+    {
+        return $this->belongsTo(Sekolah::class);
+    }
 }

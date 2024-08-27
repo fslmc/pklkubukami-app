@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
+    @yield('css')
     <title>@yield('title')</title>
     <style>
         body {
@@ -15,13 +17,14 @@
             flex-direction: column;
             min-height: 100vh;
             font-family: 'Poppins', sans-serif;
+            transition: background-color 0.5s ease-in-out;
         }
 
         main {
-    flex: 1;
-}
+                flex: 1;
+        }
 
-.nav-underline .nav-link.active {
+        .nav-underline .nav-link.active {
             position: relative;
         }
 
@@ -36,12 +39,28 @@
             border-radius: 50%;
             background-color: #fff;
         }
+
+        .row {
+            padding: 0; !important
+        }
+
+        .navbar-light {
+            background-image: linear-gradient(180deg, #C5C5C554 38%, #FFFFFF00 100%);
+        }
+
+        .navbar-dark {
+            background-image: linear-gradient(180deg, #3737374f 38%, #ffffff00 100%);
+        }
+
+        .navbar {
+            transition: background-image 0.5s ease-in-out;
+        }
     </style>
     
 </head>
 <body class="bg-black">
-    <nav class="navbar pb-5 sticky-top " style="background-image: linear-gradient(180deg, #C5C5C554 38%, #FFFFFF00 100%);">
-        <div class="container-fluid justify-content-center">
+    <nav class="navbar pb-3 fixed-top navbar-light">
+        <div class="container-fluid justify-content-center mt-2">
             <div class="nav nav-underline gap-3">
                 <a class="nav-link active text-decoration-none text-white">home</a>
                 <a class="nav-link text-decoration-none text-white">about</a>
@@ -52,9 +71,9 @@
         </div>
     </nav>
 
-    <main class="container py-5">
-        <div class="row">
-            <div class="col-12 col-sm-10 col-md-8 col-lg-9 mx-auto">
+    <main class="container">
+        <div class="row px-0">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-9 mx-auto px-0">
                 @yield('body')
             </div>
         </div>

@@ -10,6 +10,9 @@ Route::get('/', function () {
     return view('main.homepage');
 });
 
+// Rute untuk mengakses blogs
+Route::get('/blogs',[App\Http\Controllers\MainController::class,'blogs'])->name('main.blogs');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -88,7 +91,7 @@ Route::prefix('dashboard')->group(function (){
             Route::put('/role-management/{user}', [UserManagementController::class, 'update'])->name('roles.update');
         });
 
-        
+
         Route::get('/gdrive', [FileUploadController::class, 'adminIndex'])->name('admin.gdrive.index');
 
     });

@@ -29,7 +29,7 @@
                                 <th scope="row">{{ $no++ }}</th>
                                 <td>{{ $d->judul }}</td>
                                 <td>{{ $d->penulis }}</td>
-                                <td>{!! ($d->konten) !!}</td>
+                                <td>{!! Str::limit(($d->konten), 100) !!}</td>
                                 <td>
                                     <img src="{{ asset($d->thumbnail) }}" width="35" alt="{{ $d->judul }}">
                                 </td>

@@ -35,6 +35,7 @@ class MainController extends Controller
     public function galleries()
     {
         $galleries = Gallery::all();
-        return view('main.galleries', compact('galleries'));
+        $active = 'galleries';
+        return view('main.galleries', compact('galleries', 'active'));
     }
 }

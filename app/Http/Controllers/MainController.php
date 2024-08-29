@@ -12,4 +12,10 @@ class MainController extends Controller
         $blogs = Artikel::all();
         return view('main.blogs', compact('blogs'));
     }
+
+    public function kontak()
+    {
+        $active = 'kontak';
+        return view('main.kontak', compact('active'));
+    }
 }

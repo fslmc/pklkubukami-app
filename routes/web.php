@@ -12,6 +12,8 @@ Route::get('/', function () {
 
 // Rute untuk mengakses blogs
 Route::get('/blogs',[App\Http\Controllers\MainController::class,'blogs'])->name('main.blogs');
+// Rute untuk mengakses kontak
+Route::get('/kontak',[App\Http\Controllers\MainController::class,'kontak'])->name('main.kontak');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

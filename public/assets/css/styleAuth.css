@@ -1,6 +1,10 @@
 body {
     background-color: #f9f9f9;
     font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
 }
 
 .transparent-card {
@@ -9,6 +13,7 @@ body {
     /* border-radius: 12px; */
     background-color: rgba(255, 255, 255, 0); /* Semi-transparent background */
     padding: 20px;
+    position: relative;
 }
 
 h2 {
@@ -28,7 +33,7 @@ input.form-control {
 }
 
 button.btn-primary {
-    background-color: #1a2b57;
+    background-color: #14213D;
     border: none;
     padding: 10px;
     border-radius: 8px;
@@ -52,10 +57,31 @@ button.btn-outline-secondary img {
 /* Positioning the floating image */
 .floating-image {
     position: absolute;
-    top: 20px; /* Adjust the top positioning */
-    left: -100px; /* Adjust the left positioning to move it outside the card */
-    max-width: 150px; /* Adjust image size */
-    z-index: 10; /* Ensure it appears above the form */
+    top: -30px; /* Position the image 50% from the top of the card */
+    left: -100px; /* Position the image 50px to the left of the card */
+    min-width: 200px; /* Adjust image size */
+    z-index: -10; /* Ensure it appears below the form */
+  }
+
+  /* General styles for background logos */
+.bg-logo {
+    position: absolute;
+    opacity: 0.2; /* Adjust opacity to make it more subtle */
+    z-index: -1;  /* Ensure it stays behind the form */
+}
+
+/* Specific positioning for each logo */
+.bg-logo-1 {
+    top: 10%;
+    left: 5%;
+    width: 150px; /* Adjust size */
+    border: 1px;
+}
+
+.bg-logo-2 {
+    bottom: 10%;
+    right: 5%;
+    width: 150px; /* Adjust size */
 }
 
 /* Responsive adjustments */
@@ -65,8 +91,7 @@ button.btn-outline-secondary img {
     }
 
     /* Adjust the floating image on larger screens */
-    .floating-image {
-        top: 50px; /* Adjust as necessary for larger screens */
-        left: -120px; /* Keep it positioned to the left */
-    }
+    /* .floating-image {
+        transform: translateX(-120px);
+      } */
 }

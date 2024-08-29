@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +10,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container d-flex justify-content-center align-items-center vh-100 position-relative">
-        <!-- The floating image -->
-        <img src="path_to_your_image.png" alt="Man Image" class="floating-image">
+    <div class="container d-flex justify-content-center align-items-center position-relative">
+
+        <!-- Logo Image 1 -->
+        <img src="{{ asset('assets/auth/logo-kubukami.png') }}" alt="Logo 1" class="bg-logo bg-logo-1">
+        <!-- Logo Image 2 -->
+        <img src="{{ asset('assets/auth/logo-kubukami.png') }}" alt="Logo 2" class="bg-logo bg-logo-2">
 
         <div class="card p-4 border-0 transparent-card bg-transparent">
+            <!-- The floating image -->
+            <img src="{{ asset('assets/auth/3d-business-young-man-raising-his-fists 1.png') }}" alt="Man Image" class="floating-image">
             <div class="text-center mb-4">
                 <h2>Daftar Sekarang</h2>
             </div>

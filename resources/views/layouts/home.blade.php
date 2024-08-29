@@ -59,7 +59,7 @@
     </style>
 
 </head>
-<body class="bg-black">
+<body>
     <nav class="navbar pb-3 fixed-top navbar-light">
         <div class="container-fluid justify-content-center mt-2">
             <div class="nav nav-underline gap-3">

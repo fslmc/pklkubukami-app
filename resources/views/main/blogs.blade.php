@@ -1,5 +1,5 @@
 {{-- Halaman Utama Blogs --}}
-@extends('layouts.homepage')
+@extends('layouts.home')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/css/blogs-style.css') }}">

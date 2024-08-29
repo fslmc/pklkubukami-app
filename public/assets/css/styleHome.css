@@ -91,7 +91,7 @@ section {
 }
 
 /* Control the spacing and height */
-.col-lg-5 .mb-3, 
+.col-lg-5 .mb-3,
 .col-lg-5 div:last-child {
     height: 48%; /* Adjust height as per requirement */
 }
@@ -115,7 +115,7 @@ section {
             .about-text {
                 font-size: 0.9rem;
             }
-            
+
         }
 
         @media (min-width: 760px){
@@ -123,5 +123,5 @@ section {
                 width: 60%;
                 object-fit: cover; /* Ensures the image scales nicely */
             }
-            
+
         }

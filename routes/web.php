@@ -13,6 +13,8 @@ Route::get('/', function () {
 // Rute untuk mengakses blogs
 Route::get('/blogs',[App\Http\Controllers\MainController::class,'blogs'])->name('main.blogs');
 
+// Rute untuk mengakses about
+Route::get('/about',[App\Http\Controllers\MainController::class,'about'])->name('main.about');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

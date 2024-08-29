@@ -12,4 +12,9 @@ class MainController extends Controller
         $blogs = Artikel::all();
         return view('main.blogs', compact('blogs'));
     }
+
+    public function about()
+    {
+        return view('main.about');
+    }
 }

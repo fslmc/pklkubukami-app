@@ -66,7 +66,7 @@
                 <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }} nav-link text-decoration-none text-white">home</a>
                 <a href="{{ route('main.about') }}" class="{{ $active == 'about' ? 'active' : '' }} nav-link text-decoration-none text-white">about</a>
                 <a href="{{ route('main.blogs') }}" class="{{ $active == 'blogs' ? 'active' : '' }} nav-link text-decoration-none text-white">blog</a>
-                <a class="nav-link text-decoration-none text-white">contact</a>
+                <a href="{{ route('main.kontak') }}" class="{{ $active == 'kontak' ? 'active' : '' }} nav-link text-decoration-none text-white">contact</a>
                 <a href="{{ route('main.galleries') }}" class="{{ $active == 'galleries' ? 'active' : '' }} nav-link text-decoration-none text-white">gallery</a>
             </div>
         </div>

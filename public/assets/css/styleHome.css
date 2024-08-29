@@ -1,24 +1,48 @@
+/* Add this to your CSS file */
+
+section {
+    scroll-behavior: smooth;
+  }
+
 .hero-section {
     background-image: url('../pages/hero.jpeg');
     background-size: cover;
     background-position: center;
     width: 100%;
     height: 100vh;
+    max-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
+    box-sizing: border-box;
   }
 
+  #particles-js {
+    pointer-events: none;
+}
+
+    .btn-scroll-down, .img-fluid {
+    pointer-events: auto;
+    }
+
   .hero-section img {
-    width: 40%; /* adjust the width to your liking */
+    width: 89%; /* adjust the width to your liking */
     height: auto; /* maintain aspect ratio */
     margin: 0 auto; /* center the logo horizontally */
   }
 
+  .hero-button-wrapper {
+    position: absolute; /* position the button absolutely */
+    bottom: 40px; /* move the button to the bottom of the hero section */
+    left: 50%; /* center the button horizontally */
+    transform: translateX(-50%);
+}
+
   /* About Section Styles */
 .about-section {
     padding: 40px 0;
+    width: 100%;
 }
 
 .about-heading {
@@ -33,14 +57,45 @@
 
 .about-text {
     font-size: 18px;
-    color: #666666; /* Adjust the text color as per your design */
+    color: #ffffff; /* Adjust the text color as per your design */
     margin-top: 20px;
     line-height: 1.6;
 }
 
-.about-img {
-    max-width: 70%; /* Adjust the size of the image/logo */
+.img-column {
+    position: relative;
+    height: 800px; /* Adjust this based on your layout */
 }
+
+/* Ensure the images take up the full width */
+.about-img1, .about-img2 {
+    width: 60%;
+    height: auto;
+}
+
+.image-wrapper1 {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%; /* Adjust width as needed */
+    z-index: 1;
+}
+
+/* Second image positioning with an offset */
+.image-wrapper2 {
+    position: absolute;
+    top: 50%; /* Adjust this value to create the desired offset */
+    left: 20%; /* This will offset it from the left */
+    width: 100%; /* Adjust width as needed */
+    z-index: 2;
+}
+
+/* Control the spacing and height */
+.col-lg-5 .mb-3, 
+.col-lg-5 div:last-child {
+    height: 48%; /* Adjust height as per requirement */
+}
+
 
 .btn-outline-primary {
     border-color: #333333;
@@ -55,12 +110,18 @@
         /* Custom media query for smaller text and grid adjustments on mobile */
         @media (max-width: 767.98px) {
             .about-heading {
-                font-size: 1.5rem; /* Smaller heading text */
+                font-size: 1.5rem;
             }
             .about-text {
-                font-size: 0.9rem; /* Smaller paragraph text */
+                font-size: 0.9rem;
             }
-            .about-img {
-                width: 70%; /* Smaller image size on mobile */
+            
+        }
+
+        @media (min-width: 760px){
+            .about-img1, .about-img2 {
+                width: 60%;
+                object-fit: cover; /* Ensures the image scales nicely */
             }
+            
         }

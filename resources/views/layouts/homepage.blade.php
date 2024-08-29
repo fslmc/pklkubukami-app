@@ -62,11 +62,11 @@
     <nav class="navbar pb-3 fixed-top navbar-light">
         <div class="container-fluid justify-content-center mt-2">
             <div class="nav nav-underline gap-3">
-                <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }} nav-link text-decoration-none text-white">home</a>
-                <a class="nav-link text-decoration-none text-white">about</a>
-                <a href="{{ route('main.blogs') }}" class="{{ request()->is('blogs') ? 'active' : '' }} nav-link text-decoration-none text-white">blog</a>
-                <a class="nav-link text-decoration-none text-white">contact</a>
-                <a class="nav-link text-decoration-none text-white">gallery</a>
+                <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }} nav-link text-decoration-none text-white">Home</a>
+                <a class="nav-link text-decoration-none text-white">About</a>
+                <a href="{{ route('main.blogs') }}" class="{{ $active == 'blogs' ? 'active' : '' }} nav-link text-decoration-none text-white">Blogs</a>
+                <a class="nav-link text-decoration-none text-white">Contact</a>
+                <a class="nav-link text-decoration-none text-white">Gallery</a>
             </div>
         </div>
     </nav>

@@ -1,11 +1,138 @@
-h1.title {
-    text-align: center;
-
+nav.navbar-light {
+    background-image: linear-gradient(180deg, #00000054 50%, #FFFFFF00 100%);
 }
 
-.blogs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+nav.navbar-dark {
+    background-image: linear-gradient(180deg, #0000004f 50%, #ffffff00 100%);
+}
+
+.blogs-section {
+    padding-top: 40px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(33.333% - 20px), 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+h1.header {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Container style */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Other styles remain the same */
+
+
+.card-content {
+    padding: 16px;
+}
+
+.card h2 {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #5D0E41;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.card p {
+    color: #00224D;
+    margin-bottom: 16px;
+    font-size: 1em;
+}
+
+.card .btn {
+    display: inline-block;
+    background-color: #20a9ee00;
+    color: #000000;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-color: #333333;
+}
+
+.card .btn i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card:hover .btn {
+    background-color: #333333;
+    color: white;
+}
+
+.card:hover .btn i {
+    transform: translateX(4px);
+}
+
+/* Blog Solo Start */
+
+h5 {
+    margin-top: 10px;
+    color: #666;
+}
+
+.thumbnail {
+    width: 60%;
+    margin: 30px 10px;
+}
+
+.content .btn:hover, .content i:hover {
+    transform: translateX(-4px);
+}
+
+.content {
+    text-align: center;
+}
+
+/* Blog Solo End */
+
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(auto-fill, minmax(calc(50% - 20px), 1fr)); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .cards {
+        grid-template-columns: repeat(auto-fill, minmax(calc(100% - 20px), 1fr)); /* 1 card per row */
+    }
 }

@@ -7,13 +7,24 @@ use App\Http\Controllers\UserManagementController;
 use App\Http\Middleware\AdminMiddleware;
 
 Route::get('/', function () {
-    return view('main.homepage');
+    // Penambahan label Active
+    return view('main.homepage', ['active' => '/']);
 });
 
 // Rute untuk mengakses blogs
 Route::get('/blogs',[App\Http\Controllers\MainController::class,'blogs'])->name('main.blogs');
+
 // Rute untuk mengakses kontak
 Route::get('/kontak',[App\Http\Controllers\MainController::class,'kontak'])->name('main.kontak');
+
+Route::get('/blog/{slug}', [App\Http\Controllers\MainController::class, 'blog'])->name('main.blog');
+
+// Rute untuk mengakses gallery
+Route::get('/galleries',[App\Http\Controllers\MainController::class,'galleries'])->name('main.galleries');
+
+// Rute untuk mengakses about
+Route::get('/about',[App\Http\Controllers\MainController::class,'about'])->name('main.about');
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

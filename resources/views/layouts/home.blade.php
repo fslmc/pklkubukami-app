@@ -67,7 +67,7 @@
                 <a href="{{ route('main.about') }}" class="{{ $active == 'about' ? 'active' : '' }} nav-link text-decoration-none text-white">about</a>
                 <a href="{{ route('main.blogs') }}" class="{{ $active == 'blogs' ? 'active' : '' }} nav-link text-decoration-none text-white">blog</a>
                 <a class="nav-link text-decoration-none text-white">contact</a>
-                <a class="nav-link text-decoration-none text-white">gallery</a>
+                <a href="{{ route('main.galleries') }}" class="{{ request()->is('galleries') ? 'active' : '' }} nav-link text-decoration-none text-white">gallery</a>
             </div>
         </div>
     </nav>

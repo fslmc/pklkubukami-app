@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Artikel;
+use App\Models\Gallery;
 
 class MainController extends Controller
 {
@@ -29,5 +30,11 @@ class MainController extends Controller
     {
         $active = 'about';
         return view('main.about', compact('active'));
+    }
+
+    public function galleries()
+    {
+        $galleries = Gallery::all();
+        return view('main.galleries', compact('galleries'));
     }
 }

@@ -15,8 +15,13 @@ Route::get('/', function () {
 Route::get('/blogs',[App\Http\Controllers\MainController::class,'blogs'])->name('main.blogs');
 Route::get('/blog/{slug}', [App\Http\Controllers\MainController::class, 'blog'])->name('main.blog');
 
+// Rute untuk mengakses gallery
+Route::get('/galleries',[App\Http\Controllers\MainController::class,'galleries'])->name('main.galleries');
+
 // Rute untuk mengakses about
 Route::get('/about',[App\Http\Controllers\MainController::class,'about'])->name('main.about');
+
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

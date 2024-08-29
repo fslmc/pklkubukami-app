@@ -30,7 +30,7 @@
                                     <th scope="row">{{ $no++ }}</th>
                                     <td>{{ $d->nama }}</td>
                                     <td>{{ $d->jenis_kelamin }}</td>
-                                    <td>{{ $d->sekolah }}</td>
+                                    <td>{{ $d->sekolah->nama_sekolah }}</td>
                                     <td>{{ $d->jurusan }}</td>
                                     <td>{{ $d->tanggal }}</td>
                                     <td>

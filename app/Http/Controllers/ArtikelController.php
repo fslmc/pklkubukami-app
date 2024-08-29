@@ -37,7 +37,7 @@ class ArtikelController extends Controller
             'judul' => 'required|min:3',
             'penulis' => 'required|min:3',
             'konten' => 'required|min:3',
-            'thumbnail' => 'nullable|image|max:2048',
+            'thumbnail' => 'required|image|max:2048',
         ], [
             'judul.required' => 'Judul harus diisi',
             'penulis.required' => 'Penulis harus diisi',
@@ -47,7 +47,7 @@ class ArtikelController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withInput()->withErrors($validator);
+            return redirect()->route('artikel.index')->with('error', 'Data gagal disimpan harap isi dengan lengkap.');
         }
 
         try {
@@ -78,7 +78,7 @@ class ArtikelController extends Controller
             return redirect()->route('artikel.index')->with('success', 'Data Berhasil Disimpan.');
         } catch (QueryException $e) {
             // Tangani pengecualian jika terjadi kesalahan query
-            return redirect()->back()->with('error', 'Data Gagal Disimpan! ' . $e->getMessage());
+            return redirect()->route('artikel.index')->with('error', 'Data gagal disimpan.');
         }
     }
 
@@ -109,7 +109,7 @@ class ArtikelController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withInput()->with('error', 'Data Gagal DiUbah!');
+            return redirect()->route('artikel.index')->with('error', 'Data gagal disimpan.');
         }
 
         try {
@@ -120,6 +120,17 @@ class ArtikelController extends Controller
                 $fileName = time() . '.' . $request->thumbnail->extension();
                 $request->thumbnail->move(public_path('assets/artikel-thumbnail'), $fileName);
                 $filePath = '/assets/artikel-thumbnail/' . $fileName;
+
+                // Hapus foto lama jika ada
+                if ($artikel->thumbnail != '/assets/img/card.jpg') {
+                    unlink(public_path($artikel->thumbnail));
+                }
+            } elseif ($request->input('unset_thumbnail') == 'on') {
+                // Hapus foto jika checkbox unset_thumbnail dicentang
+                $filePath = '/assets/img/card.jpg';
+                if ($artikel->thumbnail != '/assets/img/card.jpg') {
+                    unlink(public_path($artikel->thumbnail));
+                }
             }
 
             // Buat slug dari judul
@@ -140,7 +151,7 @@ class ArtikelController extends Controller
             return redirect()->route('artikel.index')->with('success', 'Data Berhasil DiUbah.');
         } catch (QueryException $e) {
             // Tangani pengecualian jika terjadi kesalahan query
-            return redirect()->back()->with('error', 'Data Gagal DiUbah! ' . $e->getMessage());
+            return redirect()->route('artikel.index')->with('error', 'Data gagal disimpan.');
         }
     }
 
@@ -150,6 +161,11 @@ class ArtikelController extends Controller
         $artikel = Artikel::find($ids);
 
         if ($artikel) {
+            // Hapus foto jika ada
+            if ($artikel->thumbnail != '/assets/img/card.jpg') {
+                unlink(public_path($artikel->thumbnail));
+            }
+
             $artikel->delete();
             return redirect()->back()->with('success', 'Data Berhasil Dihapus.');
         } else {

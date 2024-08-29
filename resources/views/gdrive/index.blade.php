@@ -14,8 +14,8 @@
                                 <tr>
                                     <th scope="col">No.</th>
                                     <th scope="col">Nama File</th>
-                                    <th scope="col">Link Google Drive</th>
                                     <th scope="col">Timestamp</th>
+                                    <th scope="col">Link Google Drive</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -23,14 +23,14 @@
                                 @php
                                     $no = 1;
                                 @endphp
-                                @foreach ($uploadHistories as $d)
+                                @foreach ($uploadHistories as $history)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
                                     <td>{{ $history->file_name }}</td>
                                     <td>{{ $history->created_at }}</td>
                                     <td><a href="{{ $history->google_drive_file_link }}" target="_blank">View File</a></td>
                                     <td>
-                                        <a href="{{route('sekolah.edit',Crypt::encrypt($d->id))}}"
+                                        <a href="#"
                                             class="btn btn-primary btn-sm" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Edit Siswa">
                                             <i class="fas fa-pen"></i></a>
@@ -50,12 +50,12 @@
                                                 }
                                             });"><i
                                             class="fas fa-trash"></i></a> --}}
-                                        <form id="delete-form-{{ $d->id }}"
+                                        {{-- <form id="delete-form-{{ $d->id }}"
                                             action="{{ route('sekolah.delete', Crypt::encrypt($d->id)) }}"
                                             method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
                                 @endforeach

@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ route('artikel.create') }}" class="btn btn-info">Tambah Data <i class="fas fa-book"></i></i></a>
+                    <a href="{{ route('artikel.create') }}" class="btn btn-info">Tambah Data <i class="fas fa-plus"></i></a>
                     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
                     <script src="https://cdn.datatables.net/2.1.0/js/jquery.dataTables.min.js"></script>
                     <table id="myTable" class="table datatable mt-3">
@@ -29,7 +29,7 @@
                                 <th scope="row">{{ $no++ }}</th>
                                 <td>{{ $d->judul }}</td>
                                 <td>{{ $d->penulis }}</td>
-                                <td>{!! ($d->konten) !!}</td>
+                                <td>{!! Str::limit(($d->konten), 100) !!}</td>
                                 <td>
                                     <img src="{{ asset($d->thumbnail) }}" width="35" alt="{{ $d->judul }}">
                                 </td>

@@ -24,4 +24,9 @@ class MainController extends Controller
             abort(404); // or return a custom error page
         }
     }
+
+    public function about()
+    {
+        return view('main.about');
+    }
 }

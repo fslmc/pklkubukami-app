@@ -64,8 +64,8 @@
         <div class="container-fluid justify-content-center mt-2">
             <div class="nav nav-underline gap-3">
                 <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }} nav-link text-decoration-none text-white">home</a>
-                <a href="{{ route('main.about') }}" class="{{ request()->is('about') ? 'active' : '' }} nav-link text-decoration-none text-white">about</a>
-                <a href="{{ route('main.blogs') }}" class="{{ request()->is('blogs') ? 'active' : '' }} nav-link text-decoration-none text-white">blog</a>
+                <a href="{{ route('main.about') }}" class="{{ $active == 'about' ? 'active' : '' }} nav-link text-decoration-none text-white">about</a>
+                <a href="{{ route('main.blogs') }}" class="{{ $active == 'blogs' ? 'active' : '' }} nav-link text-decoration-none text-white">blog</a>
                 <a class="nav-link text-decoration-none text-white">contact</a>
                 <a class="nav-link text-decoration-none text-white">gallery</a>
             </div>

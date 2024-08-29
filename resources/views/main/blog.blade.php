@@ -9,7 +9,7 @@
 @section('body')
     <section class="blogs-section my-5">
         <div class="container">
-            <h1 class="text-center">Our Blogs</h1>
+            <h1 class="text-center header">Our Blogs</h1>
             <div class="content mt-9">
                 <h5 class="text-center">{{ $blog->judul }}</h5>
                 <img class="thumbnail" src="{{ asset($blog->thumbnail) }}" alt="{{ $blog->judul }}">

@@ -27,6 +27,7 @@ class MainController extends Controller
 
     public function about()
     {
-        return view('main.about');
+        $active = 'about';
+        return view('main.about', compact('active'));
     }
 }

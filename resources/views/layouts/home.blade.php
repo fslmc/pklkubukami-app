@@ -18,6 +18,7 @@
             min-height: 100vh;
             font-family: 'Poppins', sans-serif;
             transition: background-color 0.5s ease-in-out;
+            overflow-x: hidden;
         }
 
         main {
@@ -73,7 +74,7 @@
 
     <main class="container">
         <div class="row px-0">
-            <div class="col-12 col-sm-10 col-md-8 col-lg-9 mx-auto px-0">
+            <div class="col-12 col-sm-10 col-md-12 col-lg-10 mx-auto px-0">
                 @yield('body')
             </div>
         </div>

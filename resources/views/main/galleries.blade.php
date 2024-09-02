@@ -1,4 +1,4 @@
-{{-- Halaman Utama Blogs --}}
+{{-- Halaman Utama Gallery --}}
 @extends('layouts.home')
 
 @section('css')
@@ -8,15 +8,35 @@
 @section('title', 'Halaman Gallery')
 
 @section('body')
-    <h1 class="title">Gallery</h1>
-    <div class="gallery">
-        @foreach ($galleries as $gallery)
-            <div class="gallery-item">
-                <img src="{{ asset($gallery->foto) }}" alt="{{ $gallery->judul }}">
-                <div class="gallery-info">
-                    <h3>{{ $gallery->judul }}</h3>
-                </div>
+    <header class="text-center mb-5">
+        <h1 class="display-4 title">Gallery</h1>
+        <p class="lead text-muted">Gunakan formulir pencarian di bawah untuk menemukan galeri tertentu.</p>
+    </header>
+
+    <div class="container">
+        {{-- Formulir Pencarian --}}
+        <form action="{{ route('gallery.search') }}" method="GET" class="mb-4">
+            <div class="input-group input-group-lg">
+                <input type="text" name="query" class="form-control form-control-lg" placeholder="Search galleries..." aria-label="Search" value="{{ request()->query('query') }}">
+                <button class="btn btn-primary btn-lg" type="submit">Cari</button>
             </div>
-        @endforeach
+        </form>
+
+        <div class="row">
+            @forelse ($galleries as $gallery)
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm rounded">
+                        <img src="{{ asset($gallery->foto) }}" class="card-img-top rounded-top" alt="{{ $gallery->judul }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $gallery->judul }}</h5>
+                            <p class="card-text text-muted">Diunggah oleh: {{ $gallery->upload_by }}</p>
+                            <p class="card-text text-muted">Tanggal: {{ \Carbon\Carbon::parse($gallery->created_at)->format('d M Y') }}</p>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <p class="text-center text-muted">Tidak ada galeri ditemukan.</p>
+            @endforelse
+        </div>
     </div>
 @endsection

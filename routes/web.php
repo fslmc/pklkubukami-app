@@ -17,6 +17,8 @@ Route::get('/blog/{slug}', [App\Http\Controllers\MainController::class, 'blog'])
 
 // Rute untuk mengakses gallery
 Route::get('/galleries',[App\Http\Controllers\MainController::class,'galleries'])->name('main.galleries');
+Route::get('/gallery/search', [App\Http\Controllers\MainController::class, 'search'])->name('gallery.search');
+
 
 // Rute untuk mengakses about
 Route::get('/about',[App\Http\Controllers\MainController::class,'about'])->name('main.about');

@@ -36,4 +36,15 @@ class MainController extends Controller
         $galleries = Gallery::all();
         return view('main.galleries', compact('galleries'));
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $galleries = Gallery::where('judul', 'like', "%$query%")
+                            ->orWhere('upload_by', 'like', "%$query%")
+                            ->get();
+
+        return view('main.galleries', compact('galleries'));
+    }
 }

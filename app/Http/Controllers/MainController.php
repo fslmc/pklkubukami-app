@@ -28,13 +28,21 @@ class MainController extends Controller
 
     public function about()
     {
-        return view('main.about');
+        $active = 'about';
+        return view('main.about', compact('active'));
     }
 
     public function galleries()
     {
         $galleries = Gallery::all();
-        return view('main.galleries', compact('galleries'));
+        $active = 'galleries';
+        return view('main.galleries', compact('galleries', 'active'));
+    }
+
+    public function kontak()
+    {
+        $active = 'kontak';
+        return view('main.kontak', compact('active'));
     }
 
     public function search(Request $request)

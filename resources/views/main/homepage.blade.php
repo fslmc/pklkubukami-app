@@ -4,6 +4,10 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/css/styleHome.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owlCarousel.css') }}">
 @endsection
 
 @section('title', 'Welcome to Our Website')
@@ -31,6 +35,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Tentang Kami Section -->
     <section class="about-section my-5" id="about" data-scroll="about">
@@ -70,8 +75,9 @@
         </div>
     </section>
 
+
     <!-- Produk Kami Section -->
-    <section class="produk-kami-section my-5" id="product" data-scroll="product">
+    <section class="produk-kami-section my-5 py-5" id="product" data-scroll="product">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center dark-section">
@@ -107,58 +113,31 @@
         </div>
     </section>
 
+
     <!-- Testimoni Kami Section -->
-    <section class="testimoni-kami-section my-5" id="testimoni" data-scroll="testimoni">
+    <section class="testimoni-kami-section my-5 py-5" id="testimoni" data-scroll="testimoni">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center light-section">
-                    <h2><span class="section-heading">TESTIMONI</span><br><span class="section-highlight">KAMI.</span></h2>
+                    <h2><span class="section-heading">TESTIMONI</span> <br><span class="section-highlight">KAMI.</span></h2>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10">
-                    <div id="testimoniCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <!-- Slide 1 -->
-                            <div class="carousel-item active">
-                                <div class="testimoni-card card text-center p-4 shadow-sm">
-                                    <img src="path/to/avatar1.png" alt="User01 Avatar" class="img-fluid rounded-circle mb-3" style="width: 100px;">
-                                    <h5 class="testimoni-user-name">User01</h5>
-                                    <p class="testimoni-text">
-                                        We are taught you must blame your father, your sisters, your brothers, the school, the teachers - but never blame yourself.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- Slide 2 -->
-                            <div class="carousel-item">
-                                <div class="testimoni-card card text-center p-4 shadow-sm">
-                                    <img src="path/to/avatar2.png" alt="User02 Avatar" class="img-fluid rounded-circle mb-3" style="width: 100px;">
-                                    <h5 class="testimoni-user-name">User02</h5>
-                                    <p class="testimoni-text">
-                                        But it’s always your fault, because if you wanted to change, you’re the one who has got to change.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- Slide 3 -->
-                            <div class="carousel-item">
-                                <div class="testimoni-card card text-center p-4 shadow-sm">
-                                    <img src="path/to/avatar3.png" alt="User03 Avatar" class="img-fluid rounded-circle mb-3" style="width: 100px;">
-                                    <h5 class="testimoni-user-name">User03</h5>
-                                    <p class="testimoni-text">
-                                        Our greatest weakness lies in giving up. The most certain way to succeed is to try just one more time.
-                                    </p>
-                                </div>
+                    <!-- Owl Carousel -->
+                    <div class="owl-carousel owl-theme">
+                        @foreach($testimonies as $testimony)
+                        <!-- Slide {{ $loop->iteration }} -->
+                        <div class="item" style="">
+                            <div class="testimoni-card card d-flex align-items-center justify-content-center text-center p-4 col-md-12 col-sm-12 col-12" style="min-height: 400px;  background-size: cover; background-position: center;">
+                                <h5 class="testimoni-user-name position-absolute top-0 start-0 p-2">{{ $testimony->judul }}</h5>
+                                <img src="{{ asset('assets/pages/kubukami-polos.png') }}" alt="Web Logo" class="img-fluid position-absolute top-0 end-0 p-2" style="width: 50px; height: 50px;">
+                                <p class="testimoni-text">
+                                    {{ Str::limit($testimony->content, 200) }}
+                                </p>
                             </div>
                         </div>
-                        <!-- Carousel Controls -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#testimoniCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#testimoniCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -166,9 +145,28 @@
     </section>
 
 
-
-
-    {{-- Artikel Kami --}}
+    <!-- Artikel Kami Section -->
+    <section class="artikel-kami-section my-5 py-5" id="artikel" data-scroll="artikel">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center dark-section">
+                    <h2><span class="section-heading">ARTIKEL</span> <br><span class="section-highlight">KAMI.</span></h2>
+                </div>
+            </div>
+            <div class="row gy-4 justify-content-center">
+                <!-- Blog Post 1 -->
+                @foreach ($randBlogs as $b)
+                <div class="col-lg-4 col-md-7 blog-card">
+                    <div class="card p-4 shadow-sm h-100" style="background-image: url('{{ asset($b->thumbnail) }}'); background-size: cover; background-position: center;">
+                        <h5 class="card-title">{{ $b->judul }}</h5>
+                        <p class="card-text fs-6">{{ strip_tags(Str::limit($b->konten, 200)) }}</p>
+                        <a href="#" class="btn btn-outline-dark">Baca &gt;&gt;</a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
 
     
@@ -177,6 +175,8 @@
 @push('scripts')
 <script src="{{ asset('assets/js/particles.min.js') }}"></script>
 <script src="{{ asset('assets/js/particle.js') }}"></script>
+<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const sections = document.querySelectorAll('section[data-scroll]');
@@ -203,6 +203,11 @@
                     } else if (sectionId === 'testimoni'){
                         body.className = 'bg-white';
                         nav.classList.add('navbar-dark');
+                        nav.classList.remove('navbar-light');
+                    } else if (sectionId === 'artikel'){
+                        body.className = 'bg-black';
+                        nav.classList.add('navbar-light');
+                        nav.classList.add('navbar-dark');
                     }
                 }
             });
@@ -214,6 +219,39 @@
 
         sections.forEach(section => observer.observe(section));
     });
+</script>
+<script>
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        loop: true, 
+        margin: -100, 
+        nav: true,
+        autoplay: true,  
+        autoplayTimeout: 5000,      
+        smartSpeed: 1000,     
+        animateOut: 'fadeOut',   
+        animateIn: 'fadeIn', 
+        autoHeight: false,
+        center: true,
+        dots: false,
+        navText: [
+            '<i class="fas fa-arrow-left"></i>', 
+            '<i class="fas fa-arrow-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 3  
+            },
+            600: {
+                items: 3 
+            },
+            1000: {
+                items: 3 
+            }
+        }
+    });
+});
+
 </script>
 @endpush
 

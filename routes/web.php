@@ -5,11 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\MainController;
 
-Route::get('/', function () {
-    // Penambahan label Active
-    return view('main.homepage', ['active' => '/']);
-});
+Route::get('/', [MainController::class, 'homepage'])->name('homepage');
 
 // Rute untuk mengakses blogs
 Route::get('/blogs',[App\Http\Controllers\MainController::class,'blogs'])->name('main.blogs');

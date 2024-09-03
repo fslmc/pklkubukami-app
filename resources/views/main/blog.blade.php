@@ -13,7 +13,7 @@
             <div class="content mt-9">
                 <h5 class="text-center">{{ $blog->judul }}</h5>
                 <img class="thumbnail" src="{{ asset($blog->thumbnail) }}" alt="{{ $blog->judul }}">
-                <p>{!! ($blog->konten) !!}</p>
+                <p>{!! $blog->konten !!}</p>
                 <a href="{{ route('main.blogs') }}" class="btn"><i class="fas fa-arrow-left"> Back to Blogs</i></a>
             </div>
         </div>

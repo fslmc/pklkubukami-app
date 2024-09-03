@@ -45,18 +45,46 @@ section {
     width: 100%;
 }
 
-.about-heading {
+:root {
+    --text-stroke-width: 1px;
+    --light-text-stroke-color: black;
+    --dark-text-stroke-color: #fff;
+}
+
+.section-heading {
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.section-highlight {
+    color: #333333; /* Adjust the color to match your design */
     font-size: 48px;
     font-weight: bold;
     line-height: 1.2;
 }
 
-.about-heading .highlight {
-    color: #333333; /* Adjust the color to match your design */
+.section-heading:not(.section-highlight) {
+    -webkit-text-stroke: var(--text-stroke-width);
+    text-stroke: var(--text-stroke-width);
+}
+
+.light-section .section-heading:not(.section-highlight) {
+    -webkit-text-stroke-color: var(--light-text-stroke-color);
+    text-stroke-color: var(--light-text-stroke-color);
+}
+
+.dark-section .section-highlight {
+    color: transparent;
+    -webkit-text-stroke: var(--text-stroke-width);
+    text-stroke: var(--text-stroke-width);
+    -webkit-text-stroke-color: var(--dark-text-stroke-color);
+    text-stroke-color: var(--dark-text-stroke-color);
 }
 
 .about-text {
-    font-size: 18px;
+    font-size: calc(0.6vw + 7px);
     color: #ffffff; /* Adjust the text color as per your design */
     margin-top: 20px;
     line-height: 1.6;
@@ -64,30 +92,40 @@ section {
 
 .img-column {
     position: relative;
-    height: 800px; /* Adjust this based on your layout */
 }
 
 /* Ensure the images take up the full width */
 .about-img1, .about-img2 {
-    width: 60%;
+    width: 190%;
     height: auto;
 }
 
 .image-wrapper1 {
-    position: absolute;
-    top: -100px;
+    top: 0;
     left: 0;
     width: 100%; /* Adjust width as needed */
+    height: auto;
     z-index: 1;
+}
+
+@media (max-width: 760px) {
+    .image-wrapper1 {
+        width: 80%; /* Adjust the width as needed */
+        height: auto;
+    }
 }
 
 /* Second image positioning with an offset */
 .image-wrapper2 {
-    position: absolute;
-    top: 50%; /* Adjust this value to create the desired offset */
-    left: 20%; /* This will offset it from the left */
-    width: 100%; /* Adjust width as needed */
-    z-index: 2;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.produk-kami-item-text, .produk-kami-item-title {
+    color: white;
 }
 
 /* Control the spacing and height */
@@ -114,14 +152,6 @@ section {
             }
             .about-text {
                 font-size: 0.9rem;
-            }
-
-        }
-
-        @media (min-width: 760px){
-            .about-img1, .about-img2 {
-                width: 60%;
-                object-fit: cover; /* Ensures the image scales nicely */
             }
 
         }

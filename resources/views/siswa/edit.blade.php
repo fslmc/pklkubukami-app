@@ -36,7 +36,7 @@
                         </div>
                         <div class="mb-3 col-12">
                             <label for="tanggal" class="form-label">Tanggal<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="tanggal" name="tanggal" placeholder="01-07-2024" value="{{ old('tanggal', $siswa->tanggal) }}">
+                            <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{ old('tanggal', $siswa->tanggal) }}">
                         </div>
                         <div class="mb-3 col-12">
                             <button type="submit" class="btn btn-primary">Simpan<i class="bi bi-check"></i></button>

@@ -15,7 +15,7 @@ class SiswaController extends Controller
         return view('siswa.index', compact('data'));
     }
 
-    
+
 
     public function create()
     {

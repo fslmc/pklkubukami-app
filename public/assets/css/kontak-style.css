@@ -19,7 +19,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     text-align: center;
     padding: 20px;
     margin-top: 70px;
@@ -94,7 +93,7 @@ p {
     border: 3px solid;
     border-radius: 5px;
     padding: 10px;
-    width: 250px;
+    width: 200px;
     max-width: 100%;
     height: auto;
     text-decoration: none;
@@ -160,6 +159,10 @@ p {
 
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
+    .contact-container {
+        margin-top: 70px;
+    }
+
     .contact-info {
         flex-direction: column;
         align-items: center;

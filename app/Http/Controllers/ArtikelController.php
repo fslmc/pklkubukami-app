@@ -7,18 +7,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Models\Artikel;
 use Illuminate\Database\QueryException;
-use HTMLPurifier;
+use Mews\Purifier\Facades\Purifier;
 use RealReshid\SweetAlert\Facades\Alert;
 
 class ArtikelController extends Controller
 {
-    protected $purifier;
-
-    public function __construct(HTMLPurifier $purifier)
-    {
-        $this->purifier = $purifier;
-    }
-
     public function index()
     {
         $data = Artikel::all();
@@ -63,8 +56,8 @@ class ArtikelController extends Controller
             // Buat slug dari judul
             $slug = Str::slug($request->judul, '-');
 
-            // Bersihkan konten HTML
-            $konten = $this->purifier->purify($request->input('konten'));
+            // Bersihkan konten HTML menggunakan mews/purifier
+            $konten = Purifier::clean($request->input('konten'));
 
             // Simpan artikel
             $artikel = new Artikel();
@@ -136,8 +129,8 @@ class ArtikelController extends Controller
             // Buat slug dari judul
             $slug = Str::slug($request->judul, '-');
 
-            // Bersihkan konten HTML
-            $konten = $this->purifier->purify($request->input('konten'));
+            // Bersihkan konten HTML menggunakan mews/purifier
+            $konten = Purifier::clean($request->input('konten'));
 
             // Update artikel
             $artikel->update([

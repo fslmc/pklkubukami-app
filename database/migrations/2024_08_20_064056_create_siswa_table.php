@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('jenis_kelamin');
             $table->unsignedBigInteger('sekolah_id')->nullable();
             $table->string('jurusan');
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->timestamps();
 
             $table->foreign('sekolah_id')->references('id')->on('sekolah')->onDelete('cascade');

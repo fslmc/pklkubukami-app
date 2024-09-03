@@ -55,4 +55,15 @@ class MainController extends Controller
 
         return view('main.galleries', compact('galleries'));
     }
+
+    public function gallery($slug)
+    {
+        $gallery = Gallery::where('slug', $slug)->first();
+        $active = 'gallery';
+        if ($gallery) {
+            return view('main.gallery', compact('gallery', 'active'));
+        } else {
+            abort(404); // or return a custom error page
+        }
+    }
 }

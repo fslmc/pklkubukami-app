@@ -175,7 +175,7 @@
 @endsection
 
 @push('scripts')
-<script src="{{ asset('assets/js/particle.min.js') }}"></script>
+<script src="{{ asset('assets/js/particles.min.js') }}"></script>
 <script src="{{ asset('assets/js/particle.js') }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {

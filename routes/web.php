@@ -19,10 +19,14 @@ Route::get('/kontak',[App\Http\Controllers\MainController::class,'kontak'], func
     ['active' => 'kontak'];
 })->name('main.kontak');
 
-Route::get('/blog/{slug}', [App\Http\Controllers\MainController::class, 'blog'])->name('main.blog');
+Route::get('/blog/{slug}', [App\Http\Controllers\MainController::class, 'blog'], function(){
+    ['active' => 'blog'];
+})->name('main.blog');
 
 // Rute untuk mengakses gallery
-Route::get('/galleries',[App\Http\Controllers\MainController::class,'galleries'])->name('main.galleries');
+Route::get('/galleries',[App\Http\Controllers\MainController::class,'galleries'], function(){
+    ['active' => 'galleries'];
+})->name('main.galleries');
 Route::get('/gallery/search', [App\Http\Controllers\MainController::class, 'search'])->name('gallery.search');
 
 

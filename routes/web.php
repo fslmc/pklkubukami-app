@@ -26,6 +26,7 @@ Route::get('/galleries',[App\Http\Controllers\MainController::class,'galleries']
     ['active' => 'galleries'];
 })->name('main.galleries');
 Route::get('/gallery/search', [App\Http\Controllers\MainController::class, 'search'])->name('gallery.search');
+Route::get('/gallery/{slug}', [App\Http\Controllers\MainController::class, 'gallery'])->name('main.gallery');
 
 
 // Rute untuk mengakses about

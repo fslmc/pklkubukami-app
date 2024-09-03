@@ -32,7 +32,7 @@
                                     <td>{{ $d->jenis_kelamin }}</td>
                                     <td>{{ $d->sekolah->nama_sekolah }}</td>
                                     <td>{{ $d->jurusan }}</td>
-                                    <td>{{ $d->tanggal }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($d->tanggal)->format('d-m-Y') }}</td>
                                     <td>
                                         <a href="{{route('siswa.edit',Crypt::encrypt($d->id))}}"
                                             class="btn btn-primary btn-sm" data-bs-toggle="tooltip"

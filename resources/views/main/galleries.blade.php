@@ -25,14 +25,17 @@
         <div class="row">
             @forelse ($galleries as $gallery)
                 <div class="col-md-4 mb-4">
-                    <div class="card border-0 shadow-sm rounded">
-                        <img src="{{ asset($gallery->foto) }}" class="card-img-top rounded-top" alt="{{ $gallery->judul }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $gallery->judul }}</h5>
-                            <p class="card-text text-muted">Diunggah oleh: {{ $gallery->upload_by }}</p>
-                            <p class="card-text text-muted">Tanggal: {{ \Carbon\Carbon::parse($gallery->created_at)->format('d M Y') }}</p>
+                    <a href="{{ route('main.gallery', ( $gallery->slug )) }}">
+                        <div class="card border-0 shadow-sm rounded">
+                            <img src="{{ asset($gallery->foto) }}" class="card-img-top rounded-top" alt="{{ $gallery->judul }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $gallery->judul }}</h5>
+                                <p class="card-text text-muted">Diunggah oleh: {{ $gallery->upload_by }}</p>
+                                <p class="card-text text-muted">Tanggal: {{ \Carbon\Carbon::parse($gallery->created_at)->format('d M Y') }}</p>
+                            </div>
+                            <a href="{{ route('main.gallery', ( $gallery->slug )) }}" class="btn btn-primary">Read More <i class="fas fa-arrow-right"></i></a>
                         </div>
-                    </div>
+                    </a>
                 </div>
             @empty
                 <p class="text-center text-muted">Tidak ada galeri ditemukan.</p>

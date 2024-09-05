@@ -137,8 +137,8 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
           <!-- Brand Logo -->
-          <a href="index3.html" class="brand-link">
-            <img src="" alt="KubuKami Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <a href="{{ route('homepage') }}" class="brand-link">
+            <img src="{{ asset('assets/pages/kubukami-polos.png') }}" alt="KubuKami Logo" class="brand-image elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">KubuKami</span>
           </a>
 
@@ -150,7 +150,7 @@
                 <img src="" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                <a href="#" class="d-block">KubuKami</a>
+                <a href="{{ route('user.profile') }}" class="d-block">{{ Auth::user()->name }}</a>
               </div>
             </div>
 
@@ -239,7 +239,7 @@
                     <li class="nav-item">
                       <a href="{{ route('admin.gdrive.index') }}" class="nav-link active">
                         <i class="fas fa-user"></i>
-                        <p>Manage Pengumpulan Tugas</p>
+                        <p>Manage Google Drive</p>
                       </a>
                     </li>
                   </ul>
@@ -461,7 +461,7 @@
             });
         });
     </script>
-    <script src="<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.0/css/dataTables.dataTables.min.css">
     <script src="https://cdn.datatables.net/2.1.0/js/dataTables.min.js"></script>
     <script>

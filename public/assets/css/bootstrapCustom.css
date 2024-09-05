@@ -1,0 +1,11 @@
+:root {
+    --bs-primary: #14213D;
+  }
+
+  .bg-primary {
+    background-color: var(--bs-primary);
+  }
+
+  button.btn-primary {
+    background-color: #14213D;
+  }

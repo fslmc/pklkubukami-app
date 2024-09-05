@@ -9,7 +9,7 @@
 @section('body')
     <section class="gallery-section my-5">
         <div class="container">
-            <h1 class="text-center header title">Our Gallery</h1>
+            <h1 class="text-center header title">Galeri Kami</h1>
             <div class="row mt-4">
                 <!-- Kolom untuk gambar -->
                 <div class="col-md-6 d-flex align-items-center">

@@ -18,6 +18,34 @@ section {
     box-sizing: border-box;
   }
 
+  section:not(.hero-section){
+    min-height: 800px;
+  }
+/* 
+  section + section {
+    margin-top: -20px;
+  } */
+
+  section:nth-child(even) {
+    background-color: #f2f2f2; /* alternate background color */
+  }
+  
+  section:nth-child(odd) {
+    background-color: #fff; /* alternate background color */
+  }
+  
+  .light-bg{
+    background-image: url('../pages/kubukami-bg-light.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .dark-bg{
+    background-image: url('../pages/kubukami-bg-dark.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
   #particles-js {
     pointer-events: none;
 }
@@ -59,7 +87,7 @@ section {
 }
 
 .section-highlight {
-    color: #333333; /* Adjust the color to match your design */
+    color: #333333;
     font-size: 48px;
     font-weight: bold;
     line-height: 1.2;
@@ -76,7 +104,7 @@ section {
 }
 
 .dark-section .section-highlight {
-    color: transparent;
+    /* color: transparent; */
     -webkit-text-stroke: var(--text-stroke-width);
     text-stroke: var(--text-stroke-width);
     -webkit-text-stroke-color: var(--dark-text-stroke-color);
@@ -158,4 +186,12 @@ section {
 
 
 
-/* 3 Artikel */
+        .blog-card .card {
+            transition: transform 0.3s ease-in-out;
+          }
+          
+          .blog-card .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+          }

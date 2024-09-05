@@ -17,6 +17,8 @@ class CreateUploadHistoriesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('file_name');
+            $table->string('judul')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->string('google_drive_file_id');
             $table->string('google_drive_file_link');
             $table->timestamps();

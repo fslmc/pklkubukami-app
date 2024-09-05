@@ -38,14 +38,14 @@
 
 
     <!-- Tentang Kami Section -->
-    <section class="about-section my-5" id="about" data-scroll="about">
+    <section class="about-section  light-bg" id="about" data-scroll="about">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center light-section">
                     <h2><span class="section-heading">TENTANG</span> <br><span class="section-highlight">KAMI.</span></h2>
                 </div>
             </div>
-            <div class="row align-items-start">
+            <div class="row align-items-start justify-content-center">
                 <!-- Text Column -->
                 <div class="col-lg-5 col-md-8 col-sm-7 col-8">
                     <div class="bg-secondary rounded p-4">
@@ -77,7 +77,7 @@
 
 
     <!-- Produk Kami Section -->
-    <section class="produk-kami-section my-5 py-5" id="product" data-scroll="product">
+    <section class="produk-kami-section  py-5 dark-bg" id="product" data-scroll="product">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center dark-section">
@@ -115,7 +115,7 @@
 
 
     <!-- Testimoni Kami Section -->
-    <section class="testimoni-kami-section my-5 py-5" id="testimoni" data-scroll="testimoni">
+    <section class="testimoni-kami-section  py-5 light-bg" id="testimoni" data-scroll="testimoni">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center light-section">
@@ -123,7 +123,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10">
+                <div class="col-lg-8 col-md-10 w-100 w-lg-auto">
                     <!-- Owl Carousel -->
                     <div class="owl-carousel owl-theme">
                         @foreach($testimonies as $testimony)
@@ -146,21 +146,29 @@
 
 
     <!-- Artikel Kami Section -->
-    <section class="artikel-kami-section my-5 py-5" id="artikel" data-scroll="artikel">
+    <section class="artikel-kami-section py-5 dark-bg" id="artikel" data-scroll="artikel">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center dark-section">
                     <h2><span class="section-heading">ARTIKEL</span> <br><span class="section-highlight">KAMI.</span></h2>
                 </div>
             </div>
-            <div class="row gy-4 justify-content-center">
+            <div class="row gy-2 justify-content-center">
                 <!-- Blog Post 1 -->
                 @foreach ($randBlogs as $b)
-                <div class="col-lg-4 col-md-7 blog-card">
-                    <div class="card p-4 shadow-sm h-100" style="background-image: url('{{ asset($b->thumbnail) }}'); background-size: cover; background-position: center;">
-                        <h5 class="card-title">{{ $b->judul }}</h5>
-                        <p class="card-text fs-6">{{ strip_tags(Str::limit($b->konten, 200)) }}</p>
-                        <a href="#" class="btn btn-outline-dark">Baca &gt;&gt;</a>
+                <div class="col-lg-4 col-md-7 blog-card rounded-none" style="min-height: 200px">
+                    <div class="card shadow-sm h-100 rounded-0" style="background-image: url('{{ asset($b->thumbnail) }}'); background-size: cover; background-position: center;">
+                        <div class="card-body p-0" style="position: absolute; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.8);">
+                            <h5 class="card-title">{{ $b->judul }}</h5>
+                            <div class="row align-items-end">
+                                <div class="col-7">
+                                    <p class="card-text" style="font-size: 13px;">{{ strip_tags(Str::limit($b->konten, 200)) }}</p>
+                                </div>
+                                <div class="col-5 text-end">
+                                    <a href="{{ route('main.blog', ( $b->slug )) }}" class="btn btn-sm btn-outline-dark">Baca &gt;&gt;</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 @endforeach
@@ -183,31 +191,33 @@
         const body = document.body;
         const nav = document.querySelector('.navbar');
 
+        function darkSection(){
+            body.className = 'bg-black';
+            nav.classList.add('navbar-light');
+            nav.classList.remove('navbar-dark');
+        };
+
+        function lightSection(){
+            body.className = 'bg-white';
+            nav.classList.add('navbar-dark');
+            nav.classList.remove('navbar-light');
+        };
+
         const observerCallback = (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const sectionId = entry.target.id;
 
                     if (sectionId === 'hero') {
-                        body.className = 'bg-black';
-                        nav.classList.add('navbar-light');
-                        nav.classList.remove('navbar-dark');
+                        darkSection();
                     } else if (sectionId === 'about') {
-                        body.className = 'bg-white';
-                        nav.classList.add('navbar-dark');
-                    nav.classList.remove('navbar-light');
+                        lightSection();
                     } else if (sectionId === 'product') {
-                        body.className = 'bg-black';
-                        nav.classList.add('navbar-light');
-                        nav.classList.remove('navbar-dark');
+                        darkSection();
                     } else if (sectionId === 'testimoni'){
-                        body.className = 'bg-white';
-                        nav.classList.add('navbar-dark');
-                        nav.classList.remove('navbar-light');
+                        lightSection();
                     } else if (sectionId === 'artikel'){
-                        body.className = 'bg-black';
-                        nav.classList.add('navbar-light');
-                        nav.classList.add('navbar-dark');
+                        darkSection();
                     }
                 }
             });
@@ -224,7 +234,7 @@
 $(document).ready(function(){
     $(".owl-carousel").owlCarousel({
         loop: true, 
-        margin: -100, 
+        margin: -90, 
         nav: true,
         autoplay: true,  
         autoplayTimeout: 5000,      

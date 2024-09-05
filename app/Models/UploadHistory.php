@@ -14,12 +14,16 @@ class UploadHistory extends Model
     protected $fillable = [
         'user_id',
         'file_name',
+        'judul',
+        'deskripsi',
         'google_drive_file_id',
         'google_drive_file_link',
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault([
+            'name' => 'Unknown',
+        ]);
     }
 }

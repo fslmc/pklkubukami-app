@@ -8,13 +8,14 @@
                 <div class="card">
                     <div class="card-body">
                         <a href="{{route('file.create')}}" class="btn btn-info">Upload File<i class="fas fa-file"></i></a>
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#helpModal">Help/Guide</button>
-
+                        <a href="{{ route('admin.gdriveConfig') }}" class="btn btn-info">Ubah Folder Tujuan<i class=""></i></a>
                         <table id="myTable" class="table datatable mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">No.</th>
                                     <th scope="col">Nama File</th>
+                                    <th scope="col">Judul</th>
+                                    <th scope="col">Deskripsi</th>
                                     <th scope="col">Timestamp</th>
                                     <th scope="col">Link Google Drive</th>
                                     <th scope="col">Pengunggah</th>
@@ -29,9 +30,11 @@
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
                                     <td>{{ $history->file_name }}</td>
+                                    <td>{{ $history->judul }}</td>
+                                    <td>{{ $history->deskripsi }}</td>
                                     <td>{{ $history->created_at }}</td>
                                     <td><a href="{{ $history->google_drive_file_link }}" target="_blank">View File</a></td>
-                                    <td>{{ $history->user->name }}</td>
+                                    <td>{{ $history->user ? $history->user->name : 'Unknown/Deleted' }}</td>
                                     <td>
                                         <a href="#"
                                             class="btn btn-primary btn-sm" data-bs-toggle="tooltip"
@@ -78,35 +81,3 @@
     </section>
 
 @endsection
-
-<!-- Modal -->
-<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="helpModalLabel">Help/Guide</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <!-- Add your help/guide content here -->
-          <p>This is a sample help/guide content.</p>
-          <ul>
-            <li>Step 1: Do something</li>
-            <li>Step 2: Do something else</li>
-            <li>Step 3: Do something more</li>
-          </ul>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    $(document).ready(function() {
-      $('#helpModal').modal('hide');
-    });
-  </script>

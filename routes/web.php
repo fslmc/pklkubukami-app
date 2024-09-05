@@ -6,6 +6,7 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\MainController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [MainController::class, 'homepage'])->name('homepage');
 
@@ -43,6 +44,12 @@ Route::prefix('dashboard')->group(function (){
     Route::get('/', function () {
         return view('layouts.adminDashboard');
     })->name('dashboard');
+
+    route::prefix('profile')->group(function(){
+        Route::get('/', function(){
+            return view('profile.edit', ['user' => Auth::user()]);
+        })->name('user.profile');
+    });
 
     // List Artikel/Blog
     Route::prefix('artikel')->group(function () {
@@ -113,6 +120,8 @@ Route::prefix('dashboard')->group(function (){
 
 
         Route::get('/gdrive', [FileUploadController::class, 'adminIndex'])->name('admin.gdrive.index');
+        Route::get('/gdrive/settings', [FileUploadController::class, 'editFolderId'])->name('admin.gdriveConfig');
+        Route::put('/gdrive/settings/folder-id', [FileUploadController::class, 'updateFolderId'])->name('admin.gdriveConfig.update');
 
     });
 

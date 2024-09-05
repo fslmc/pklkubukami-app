@@ -20,4 +20,4 @@ yarn-error.log
 /.vscode
 /config/client_secret.json
 /config/service-account.json
-ngrok.exe
+/ngrok.exe

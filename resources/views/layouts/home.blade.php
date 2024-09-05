@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrapCustom.css') }}">
     @yield('css')
     <title>@yield('title')</title>
     <style>
@@ -62,29 +63,67 @@
 <body>
     <nav class="navbar pb-3 fixed-top navbar-light">
         <div class="container-fluid justify-content-center mt-2">
-            <div class="nav nav-underline gap-3">
+            <div class="nav nav-underline gap-5">
                 <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }} nav-link text-decoration-none text-white">home</a>
                 <a href="{{ route('main.about') }}" class="{{ $active == 'about' ? 'active' : '' }} nav-link text-decoration-none text-white">about</a>
-                <a href="{{ route('main.blogs') }}" class="{{ $active == 'blogs' ? 'active' : '' }} nav-link text-decoration-none text-white">blog</a>
                 <a href="{{ route('main.kontak') }}" class="{{ $active == 'kontak' ? 'active' : '' }} nav-link text-decoration-none text-white">contact</a>
-                <a href="{{ route('main.galleries') }}" class="{{ $active == 'galleries' ? 'active' : '' }} nav-link text-decoration-none text-white">gallery</a>
+                <div class="nav-item dropdown">
+                    <a class="nav-link text-decoration-none text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ asset('assets/pages/nav-hamburg.png') }}" alt="Other" width="20" height="20">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                        <li><a class="dropdown-item" href="{{ route('main.blogs') }}">blog</a></li>
+                        <li><a class="dropdown-item" href="{{ route('main.galleries') }}">gallery</a></li>
+                        @if(Auth::check())
+                            <li><a class="dropdown-item" href="{{ route('dashboard') }}">dashboard</a></li>
+                        @else
+                            <li><a class="dropdown-item" href="{{ route('login') }}">login</a></li>
+                        @endif
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
 
     <main class="container">
         <div class="row px-0">
-            <div class="col-12 col-sm-10 col-md-12 col-lg-10 mx-auto px-0">
+            <div class="col-12 col-sm-10 col-md-12 col-lg-10 col-xl-10 col-xxl-10 mx-auto px-0">
                 @yield('body')
             </div>
         </div>
     </main>
 
-    <footer class="bg-light py-3">
-        <div class="container">
-            <p class="text-center mb-0">Copyright 2023. All rights reserved.</p>
+<!-- Footer Section -->
+<footer class="footer-section text-center pt-4 border border-black" style="background-color: #111213;">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <!-- Logo -->
+            <div class="col-12 mb-3">
+                <img src="{{ asset('assets/pages/kubukami-polos.png') }}" alt="Company Logo" class="img-fluid" style="width: 80px;">
+            </div>
+            <!-- Social Icons -->
+            <div class="col-12 mb-3">
+                <a href="#" class="mx-2">
+                    <i class="fab fa-instagram fa-2x text-light"></i>
+                </a>
+                <a href="#" class="mx-2">
+                    <i class="fab fa-tiktok fa-2x text-light"></i>
+                </a>
+                <a href="#" class="mx-2">
+                    <i class="fab fa-facebook fa-2x text-light"></i>
+                </a>
+                <a href="#" class="mx-2">
+                    <i class="fab fa-linkedin fa-2x text-light"></i>
+                </a>
+            </div>
+            <!-- Footer Text -->
+            <div class="col-12" style="background-color: #212529">
+                <p class="text-light py-1 my-2">PT. Kembangin Teknologi Kita &copy; 2024. All Rights Reserved</p>
+            </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     @stack('scripts')

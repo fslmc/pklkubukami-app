@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('assets/dist/bootstrap.min.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrapCustom.css') }}">
+    <link rel="application/json" href="{{ asset('assets/dist/bootstrap.min.css.map') }}">
     @yield('css')
     <title>@yield('title')</title>
     <style>
@@ -76,6 +77,7 @@
                         <li><a class="dropdown-item" href="{{ route('main.galleries') }}">gallery</a></li>
                         @if(Auth::check())
                             <li><a class="dropdown-item" href="{{ route('dashboard') }}">dashboard</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.profile') }}">profile</a></li>
                         @else
                             <li><a class="dropdown-item" href="{{ route('login') }}">login</a></li>
                         @endif
@@ -124,8 +126,10 @@
     </div>
 </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/dist/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/bootstrap.min.js.map') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     @stack('scripts')
 </body>
 </html>

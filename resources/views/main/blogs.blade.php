@@ -9,8 +9,11 @@
 
 @section('body')
     <section class="blogs-section my-5">
+        <header class="about-header text-center py-5">
+            <h1 class="display-4 title">Tentang Kami</h1>
+            <p class="lead">PKL Kubukami - List Blog</p>
+        </header>
         <div class="container">
-            <h1 class="text-center header">Blog Kami</h1>
             <div class="cards mt-5">
                 @foreach ($blogs as $blog)
                     <div class="card">

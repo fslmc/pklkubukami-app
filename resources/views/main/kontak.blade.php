@@ -8,16 +8,19 @@
 
 @section('body')
     <div class="contact-container">
-        <h1>Hubungi Kami</h1>
+        <header class="about-header text-center py-5">
+            <h1 class="display-4 title">Hubungi Kami</h1>
+            <p class="lead">PKL Kubukami - Kontak</p>
+        </header>
         <div class="contact-info">
             <div class="info-item">
                 <i class="fas fa-phone-alt"></i>
-                <a href="tel:+1234567890" class="info-link"><h3>Telepon Kami</h3></a>
+                <a href="https://api.whatsapp.com/send?phone=6281572061061" class="info-link"><h3>Telepon Kami</h3></a>
                 <div class="info-description">Siap melayani Anda dari Sen-Jum 9-17</div>
             </div>
             <div class="info-item">
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:info@example.com" class="info-link"><h3>Email Kami</h3></a>
+                <a href="mailto:masterb.ofc@gmail.com" class="info-link"><h3>Email Kami</h3></a>
                 <div class="info-description">Siap melayani Anda dari Sen-Jum 9-17</div>
             </div>
         </div>
@@ -34,7 +37,7 @@
                 <span class="social-name">Facebook</span>
                 <div class="social-description">3,8K Pengikut</div>
             </a>
-            <a href="https://wa.me/yourphonenumber" target="_blank" class="icon-wrapper whatsapp" aria-label="WhatsApp">
+            <a href="https://api.whatsapp.com/send?phone=6281572061061" target="_blank" class="icon-wrapper whatsapp" aria-label="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
                 <span class="social-name">WhatsApp</span>
                 <div class="social-description">Hanya Sen-Jum 9-17</div>

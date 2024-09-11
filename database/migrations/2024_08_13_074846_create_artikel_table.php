@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('judul', 255); // Kolom writer (VARCHAR(255)) (NOT NULL)
             $table->string('penulis', 255); // Kolom title (VARCHAR(255)) (NOT NULL)
             $table->longText('konten'); // Kolom content (TEXT) (NOT NULL)
-            $table->string('thumbnail'); // Kolom title (VARCHAR(255)) (NOT NULL)
+            $table->string('thumbnail')->nullable(); // Kolom title (VARCHAR(255)) (NOT NULL)
             $table->string('slug', 255); // Kolom slug (VARCHAR(255)) (NOT NULL)
             $table->timestamps(0); // Kolom created_at (TIMESTAMP) DEFAULT CURRENT_TIMESTAMP
         });

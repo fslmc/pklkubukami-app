@@ -52,7 +52,7 @@ class GalleryController extends Controller
         }
 
         try {
-            $filePath = '/assets/img/card.jpg'; // Default path
+            $filePath = 'assets/default/blog.png'; // Default path
 
             // Cek jika ada file yang diupload
             if ($request->hasFile('foto')) {
@@ -123,7 +123,7 @@ class GalleryController extends Controller
                 $filePath = '/assets/gallery-foto/' . $fileName;
 
                 // Hapus foto lama jika ada
-                if ($gallery->foto != '/assets/img/card.jpg') {
+                if ($gallery->foto != 'assets/default/blog.png') {
                     unlink(public_path($gallery->foto));
                 }
             }
@@ -157,7 +157,7 @@ class GalleryController extends Controller
 
         if ($gallery) {
             // Hapus foto jika ada
-            if ($gallery->foto != '/assets/img/card.jpg') {
+            if ($gallery->foto != 'assets/default/blog.png') {
                 unlink(public_path($gallery->foto));
             }
 

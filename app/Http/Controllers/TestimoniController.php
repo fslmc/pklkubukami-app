@@ -10,6 +10,7 @@ use Illuminate\Database\QueryException;
 use HTMLPurifier;
 use RealReshid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class TestimoniController extends Controller
 {

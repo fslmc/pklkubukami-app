@@ -3,25 +3,47 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/css/about-style.css') }}">
+    <style>
+        @media (max-width: 576px) {
+    .row {
+        flex-direction: column;
+    }
+}
+    </style>
 @endsection
 
-@section('title', 'Halaman About')
+@section('title', 'Tentang Kami')
 
 @section('body')
 <body>
-    <header class="about-header">
-        <h1>Tentang Kami</h1>
-        <p>KUBUKAMI</p>
-    </header>
-
-    <div class="konten">
-        <div class="row">
-            <div class="col-md-6 col-sm-12 image-container order-lg-1 order-md-2 order-sm-1">
-                <img src="{{ asset('assets/pages/kubukami-polos.png') }}" alt="Company Logo">
+    <div class="container py-5">
+        <header class="about-header text-center py-5 bg-light">
+            <h1 class="display-4">Tentang Kami</h1>
+            <p class="lead">Platform PKL Kubukami</p>
+        </header>
+        <div class="row align-items-center">
+            <!-- Bagian Gambar -->
+            <div class="col-md-6 col-sm-12 image-container order-lg-1 order-md-2 order-sm-1 mb-4 mb-md-0">
+                <img src="{{ asset('assets/pages/kubukami-polos.png') }}" alt="Company Logo" class="img-fluid rounded">
             </div>
+            <!-- Bagian Konten -->
             <div class="col-md-6 col-sm-12 content-container order-lg-2 order-md-1 order-sm-2">
-                <p>What is Lorem Ipsum?
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <h2 class="mb-4">Tentang PKL Kubukami</h2>
+                <p>PKL Kubukami adalah platform digital yang dirancang khusus untuk siswa-siswi Sekolah Menengah Kejuruan (SMK) yang sedang menjalani program Praktik Kerja Lapangan (PKL). Platform ini dikelola oleh <strong>PT. Kembangin Teknologi Kita</strong> dan <strong>PT. Mitra Travelindo Kuantum</strong>, yang berkomitmen untuk memberikan pengalaman magang yang terstruktur, efektif, dan terorganisir dengan baik.</p>
+                <h3 class="mt-4">Layanan Utama</h3>
+                <ul class="list-unstyled">
+                    <li>✔️ Manajemen tugas bagi siswa PKL.</li>
+                    <li>✔️ Basis data informasi program PKL yang terorganisir.</li>
+                    <li>✔️ Evaluasi dan pelaporan kinerja siswa.</li>
+                </ul>
+                <h3 class="mt-4">Visi & Misi</h3>
+                <p><strong>Visi:</strong> Menjadi platform unggulan yang mendukung program magang siswa SMK dengan pendekatan digital yang inovatif dan terintegrasi.</p>
+                <p><strong>Misi:</strong></p>
+                <ul>
+                    <li>Membantu siswa mendapatkan pengalaman magang yang terorganisir dan bermakna.</li>
+                    <li>Menyediakan solusi manajemen tugas dan evaluasi yang efektif bagi perusahaan dan sekolah.</li>
+                    <li>Mendorong keterlibatan siswa secara proaktif melalui sistem yang transparan dan mudah digunakan.</li>
+                </ul>
             </div>
         </div>
     </div>

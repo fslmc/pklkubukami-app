@@ -8,8 +8,9 @@
 @section('title', 'Halaman Gallery')
 
 @section('body')
-    <header class="text-center mb-5">
-        <h1 class="display-4 title">Gallery</h1>
+    <header class="text-center my-5">
+        <h1 class="display-4 title">Galeri Kami</h1>
+        <p class="lead pb-3">PKL Kubukami - List Galeri</p>
         <p class="lead text-muted">Gunakan formulir pencarian di bawah untuk menemukan galeri tertentu.</p>
     </header>
 
@@ -24,19 +25,19 @@
 
         <div class="row">
             @forelse ($galleries as $gallery)
-                <div class="col-md-4 mb-4">
-                    <a href="{{ route('main.gallery', ( $gallery->slug )) }}">
-                        <div class="card border-0 shadow-sm rounded">
-                            <img src="{{ asset($gallery->foto) }}" class="card-img-top rounded-top" alt="{{ $gallery->judul }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $gallery->judul }}</h5>
-                                <p class="card-text text-muted">Diunggah oleh: {{ $gallery->upload_by }}</p>
-                                <p class="card-text text-muted">Tanggal: {{ \Carbon\Carbon::parse($gallery->created_at)->format('d M Y') }}</p>
-                            </div>
-                            <a href="{{ route('main.gallery', ( $gallery->slug )) }}" class="btn btn-primary">Read More <i class="fas fa-arrow-right"></i></a>
+            <div class="col-md-4 mb-4">
+                <a href="{{ route('main.gallery', ( $gallery->slug )) }}">
+                    <div class="card border-0 shadow-sm rounded h-100">
+                        <img src="{{ asset($gallery->foto) }}" class="card-img-top rounded-top" alt="{{ $gallery->judul }}" style="object-fit: cover; height: 150px;"> <!-- adjust the height to your liking -->
+                        <div class="card-body flex-grow-1">
+                            <h5 class="card-title">{{ $gallery->judul }}</h5>
+                            <p class="card-text text-muted">Diunggah oleh: {{ $gallery->upload_by }}</p>
+                            <p class="card-text text-muted">Tanggal: {{ \Carbon\Carbon::parse($gallery->created_at)->format('d M Y') }}</p>
                         </div>
-                    </a>
-                </div>
+                        <a href="{{ route('main.gallery', ( $gallery->slug )) }}" class="btn btn-primary">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </a>
+            </div>
             @empty
                 <p class="text-center text-muted">Tidak ada galeri ditemukan.</p>
             @endforelse

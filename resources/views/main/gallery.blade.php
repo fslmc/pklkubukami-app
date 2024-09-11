@@ -9,7 +9,10 @@
 @section('body')
     <section class="gallery-section my-5">
         <div class="container">
-            <h1 class="text-center header title">Galeri Kami</h1>
+            <header class="about-header text-center py-5">
+                <h1 class="display-4 title">Galeri Kami</h1>
+                <p class="lead">PKL Kubukami - Galeri</p>
+            </header>
             <div class="row mt-4">
                 <!-- Kolom untuk gambar -->
                 <div class="col-md-6 d-flex align-items-center">

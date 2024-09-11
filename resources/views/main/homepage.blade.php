@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owlCarousel.css') }}">
 @endsection
 
-@section('title', 'Welcome to Our Website')
+@section('title', 'PKL Kubukami')
 
 @section('body')
     <!-- Hero Section -->
@@ -50,8 +50,7 @@
                 <div class="col-lg-5 col-md-8 col-sm-7 col-8">
                     <div class="bg-secondary rounded p-4">
                         <p class="about-text">
-                            What is Lorem Ipsum?
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            PKL Kubukami adalah platform digital yang dirancang khusus untuk siswa-siswi Sekolah Menengah Kejuruan (SMK) yang sedang menjalani program Praktik Kerja Lapangan (PKL). Platform ini dikelola oleh PT. Kembangin Teknologi Kita dan PT. Mitra Travelindo Kuantum, yang berkomitmen untuk memberikan pengalaman magang yang terstruktur, efektif, dan terorganisir dengan baik.
                         </p>
                         <a href="{{ route('main.about') }}" class="{{ request()->is('about') ? 'active' : '' }}"><button class="btn btn-outline-primary mt-3">Baca Selengkapnya</button></a>
                     </div>
@@ -76,42 +75,49 @@
     </section>
 
 
-    <!-- Produk Kami Section -->
-    <section class="produk-kami-section  py-5 dark-bg" id="product" data-scroll="product">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center dark-section">
-                    <h2><span class="section-heading">PRODUK</span> <br><span class="section-highlight">KAMI.</span></h2>
+<!-- Program Kami Section -->
+<section class="produk-kami-section py-5 dark-bg" id="program" data-scroll="program">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center dark-section">
+                <h2><span class="section-heading">PROGRAM</span> <br><span class="section-highlight">KAMI.</span></h2>
+            </div>
+        </div>
+        <div class="row justify-content-center grid gap-3">
+            <!-- Program Item 1 -->
+            <div class="col-lg-8 col-md-12 col-sm-12 d-flex align-items-stretch">
+                <div class="produk-kami-item card border border-white text-center p-4 shadow bg-transparent">
+                    <img src="{{ asset('assets/pages/project-management.png') }}" alt="Manajemen Proyek" class="img-fluid mb-3">
+                    <h3 class="produk-kami-item-title">Manajemen Tugas dan Laporan</h3>
+                    <p class="produk-kami-item-text">
+                        Program ini mencakup pelatihan manajemen tugas dan laporan harian, mingguan, serta bulanan. Siswa belajar cara mengelola waktu dan menyusun laporan kegiatan yang akan dievaluasi oleh mentor dari perusahaan.
+                    </p>
                 </div>
             </div>
-            <div class="row justify-content-center grid gap-3">
-                <!-- Product Item 1 -->
-                <div class="col-lg-8 col-md-12 col-sm-12 d-flex align-items-stretch ">
-                    <div class="produk-kami-item card border border-white text-center p-4 shadow bg-transparent">
-                        <img src="{{ asset('assets/pages/product-1.png') }}" alt="Product 1" class="img-fluid mb-3">
-                        <h3 class="produk-kami-item-title">Personal Training</h3>
-                        <p class="produk-kami-item-text">Our greatest weakness lies in giving up. The most certain way to succeed is to try just one more time.</p>
-                    </div>
+            <!-- Program Item 2 -->
+            <div class="col-lg-8 col-md-12 col-sm-12 d-flex align-items-stretch">
+                <div class="produk-kami-item card border border-white text-center p-4 shadow bg-transparent">
+                    <img src="{{ asset('assets/pages/data-management.png') }}" alt="Manajemen Data" class="img-fluid mb-3">
+                    <h3 class="produk-kami-item-title">Kerja Tim dan Diskusi Kelompok</h3>
+                    <p class="produk-kami-item-text">
+                        Siswa akan mengikuti diskusi kelompok dan kolaborasi proyek yang bertujuan untuk mengembangkan kemampuan bekerja dalam tim, serta mengasah keterampilan interpersonal dalam lingkungan kerja profesional.
+                    </p>
                 </div>
-                <!-- Product Item 2 -->
-                <div class="col-lg-8 col-md-12 col-sm-12 d-flex align-items-stretch">
-                    <div class="produk-kami-item card border border-white text-center p-4 shadow bg-transparent">
-                        <img src="{{ asset('assets/pages/product-2.png') }}" alt="Product 2" class="img-fluid mb-3">
-                        <h3 class="produk-kami-item-title">Workshop</h3>
-                        <p class="produk-kami-item-text">Our greatest weakness lies in giving up. The most certain way to succeed is to try just one more time.</p>
-                    </div>
-                </div>
-                <!-- Product Item 3 -->
-                <div class="col-lg-8 col-md-12 col-sm-12 d-flex align-items-stretch">
-                    <div class="produk-kami-item card border border-white text-center p-4 shadow bg-transparent">
-                        <img src="{{ asset('assets/pages/product-3.png') }}" alt="Product 3" class="img-fluid mb-3">
-                        <h3 class="produk-kami-item-title">Group Discussion</h3>
-                        <p class="produk-kami-item-text">Our greatest weakness lies in giving up. The most certain way to succeed is to try just one more time.</p>
-                    </div>
+            </div>
+            <!-- Program Item 3 -->
+            <div class="col-lg-8 col-md-12 col-sm-12 d-flex align-items-stretch">
+                <div class="produk-kami-item card border border-white text-center p-4 shadow bg-transparent">
+                    <img src="{{ asset('assets/pages/software-development.png') }}" alt="Pengembangan Perangkat Lunak" class="img-fluid mb-3">
+                    <h3 class="produk-kami-item-title">Evaluasi dan Feedback Berkala</h3>
+                    <p class="produk-kami-item-text">
+                        Setiap siswa akan mendapat evaluasi berkala dari mentor mereka. Program ini mencakup feedback yang terstruktur untuk membantu siswa memperbaiki kemampuan dan kinerja selama program magang berlangsung.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
 
     <!-- Testimoni Kami Section -->
@@ -212,7 +218,7 @@
                         darkSection();
                     } else if (sectionId === 'about') {
                         lightSection();
-                    } else if (sectionId === 'product') {
+                    } else if (sectionId === 'program') {
                         darkSection();
                     } else if (sectionId === 'testimoni'){
                         lightSection();
@@ -234,7 +240,7 @@
 $(document).ready(function(){
     $(".owl-carousel").owlCarousel({
         loop: true, 
-        margin: -90, 
+        margin: -150, 
         nav: true,
         autoplay: true,  
         autoplayTimeout: 5000,      

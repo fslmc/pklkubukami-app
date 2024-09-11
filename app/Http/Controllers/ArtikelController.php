@@ -9,6 +9,7 @@ use App\Models\Artikel;
 use Illuminate\Database\QueryException;
 use Mews\Purifier\Facades\Purifier;
 use RealReshid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Crypt;
 
 class ArtikelController extends Controller
 {
@@ -30,7 +31,7 @@ class ArtikelController extends Controller
             'judul' => 'required|min:3',
             'penulis' => 'required|min:3',
             'konten' => 'required|min:3',
-            'thumbnail' => 'required|image|max:2048',
+            'thumbnail' => 'nullable|image|max:2048',
         ], [
             'judul.required' => 'Judul harus diisi',
             'penulis.required' => 'Penulis harus diisi',
@@ -44,8 +45,8 @@ class ArtikelController extends Controller
         }
 
         try {
-            $filePath = '/assets/img/card.jpg'; // Default path
-
+            $filePath = '/assets/default/blog.png'; // Default path
+    
             // Cek jika ada file yang diupload
             if ($request->hasFile('thumbnail')) {
                 $fileName = time() . '.' . $request->thumbnail->extension();
@@ -115,7 +116,7 @@ class ArtikelController extends Controller
                 $filePath = '/assets/artikel-thumbnail/' . $fileName;
 
                 // Hapus foto lama jika ada
-                if ($artikel->thumbnail != '/assets/img/card.jpg') {
+                if ($artikel->thumbnail != '/assets/default/blog.png') {
                     unlink(public_path($artikel->thumbnail));
                 }
             } elseif ($request->input('unset_thumbnail') == 'on') {
@@ -155,7 +156,7 @@ class ArtikelController extends Controller
 
         if ($artikel) {
             // Hapus foto jika ada
-            if ($artikel->thumbnail != '/assets/img/card.jpg') {
+            if ($artikel->thumbnail != '/assets/default/blog.png') {
                 unlink(public_path($artikel->thumbnail));
             }
 

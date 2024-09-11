@@ -1,8 +1,7 @@
 .owl-carousel .owl-nav button.owl-prev,
 .owl-carousel .owl-nav button.owl-next {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-30%);
     background: transparent;
     border: none;
     font-size: 2rem;
@@ -11,11 +10,11 @@
 }
 
 .owl-carousel .owl-nav button.owl-prev {
-    left: 20%;  /* Adjust as needed */
+    left: 40%;  /* Adjust as needed */
 }
 
 .owl-carousel .owl-nav button.owl-next {
-    right: 20%;  /* Adjust as needed */
+    right: 40%;  /* Adjust as needed */
 }
 
 .testimoni-card {

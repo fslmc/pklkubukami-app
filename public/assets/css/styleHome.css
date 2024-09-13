@@ -5,7 +5,7 @@ section {
   }
 
 .hero-section {
-    background-image: url('../pages/hero.jpeg');
+    background-image: var(--hero-background-image); /* Background Image dinamis */
     background-size: cover;
     background-position: center;
     width: 100%;

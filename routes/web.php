@@ -7,11 +7,13 @@ use App\Http\Controllers\UserManagementController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HeroSectionController;
 
 Route::get('/', [MainController::class, 'homepage'])->name('homepage');
 
 // Rute untuk mengakses blogs
 Route::get('/blogs',[App\Http\Controllers\MainController::class,'blogs'])->name('main.blogs');
+Route::get('/blogs/search', [MainController::class, 'searchBlog'])->name('blog.search');
 
 // Rute untuk mengakses kontak
 Route::get('/kontak',[App\Http\Controllers\MainController::class,'kontak'], function(){
@@ -26,8 +28,12 @@ Route::get('/blog/{slug}', [App\Http\Controllers\MainController::class, 'blog'],
 Route::get('/galleries',[App\Http\Controllers\MainController::class,'galleries'], function(){
     ['active' => 'galleries'];
 })->name('main.galleries');
-Route::get('/gallery/search', [App\Http\Controllers\MainController::class, 'search'])->name('gallery.search');
+Route::get('/gallery/search', [App\Http\Controllers\MainController::class, 'searchGallery'])->name('gallery.search');
 Route::get('/gallery/{slug}', [App\Http\Controllers\MainController::class, 'gallery'])->name('main.gallery');
+
+Route::get('/projeks', [MainController::class,'projeks'])->name('main.projeks');
+Route::get('/projek/{slug}', [MainController::class,'projek'])->name('main.projek');
+Route::get('/projek/search', [MainController::class,'searchProjek'])->name('projek.search');
 
 
 // Rute untuk mengakses about
@@ -39,7 +45,7 @@ Route::get('/about',[App\Http\Controllers\MainController::class,'about'])->name(
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::prefix('dashboard')->middleware(['auth', 'role:admin,user'])->group(function (){
-Route::prefix('dashboard')->group(function (){
+    Route::prefix('dashboard')->middleware(['auth', 'role:admin,user'])->group(function (){
 
     Route::get('/', function () {
         return view('layouts.adminDashboard');
@@ -59,6 +65,15 @@ Route::prefix('dashboard')->group(function (){
         Route::get('/edit/{id}', [App\Http\Controllers\ArtikelController::class, 'edit'])->name('artikel.edit');
         Route::put('/update/{id}', [App\Http\Controllers\ArtikelController::class, 'update'])->name('artikel.update');
         Route::delete('/delete/{id}', [App\Http\Controllers\ArtikelController::class, 'delete'])->name('artikel.delete');
+    });
+
+    Route::prefix('projek')->group(function () {
+        Route::get('/index', [App\Http\Controllers\ProjekController::class, 'index'])->name('projek.index');
+        Route::get('/create', [App\Http\Controllers\ProjekController::class, 'create'])->name('projek.create');
+        Route::post('/post', [App\Http\Controllers\ProjekController::class, 'post'])->name('projek.post');
+        Route::get('/edit/{id}', [App\Http\Controllers\ProjekController::class, 'edit'])->name('projek.edit');
+        Route::put('/update/{id}', [App\Http\Controllers\ProjekController::class, 'update'])->name('projek.update');
+        Route::delete('/delete/{id}', [App\Http\Controllers\ProjekController::class, 'delete'])->name('projek.delete');
     });
 
     // List Siswa pkl
@@ -109,13 +124,20 @@ Route::prefix('dashboard')->group(function (){
         Route::get('/history', [FileUploadController::class, 'index'])->name('file.history');
     });
 
+
+
     // Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
-    Route::prefix('admin')->group(function () {
+        Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
         // Admin Mengelola User, Mengubah Role.
         Route::prefix('user-list')->group(function(){
             Route::get('/index', [UserManagementController::class, 'index'])->name('roles.index');
             Route::put('/role-management/{user}', [UserManagementController::class, 'update'])->name('roles.update');
+        });
+
+        Route::prefix('hero-section')->group(function(){
+            Route::get('/edit', [HeroSectionController::class, 'edit'])->name('hero.edit');
+            Route::put('/update', [HeroSectionController::class, 'update'])->name('hero.update');
         });
 
 
@@ -126,6 +148,7 @@ Route::prefix('dashboard')->group(function (){
     });
 
 });
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

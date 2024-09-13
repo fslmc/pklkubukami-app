@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta keywords="">
     <link rel="icon" type="image/png" href="{{ asset('assets/pages/kubukami-polos.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/bootstrap.min.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,46 +17,25 @@
     <title>@yield('title')</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            font-family: 'Poppins', sans-serif;
-            transition: background-color 0.5s ease-in-out;
-            overflow-x: hidden;
+            display: flex;flex-direction: column;min-height: 100vh;font-family: 'Poppins', sans-serif;transition: background-color 0.5s ease-in-out;overflow-x: hidden;
         }
-
         main {
-                flex: 1;
+            flex: 1;
         }
-
-        .nav-underline .nav-link.active {
-            position: relative;
+        .nav-underline .nav-link.active {position: relative;
         }
-
         .nav-underline .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background-color: #fff;
+            content: '';position: absolute;bottom: -15px;left: 50%;transform: translateX(-50%);width: 5px;height: 5px;border-radius: 50%;background-color: #fff;
         }
-
         .row {
             padding: 0; !important
         }
-
         .navbar-light {
             background-image: linear-gradient(180deg, #C5C5C554 38%, #FFFFFF00 100%);
         }
-
         .navbar-dark {
             background-image: linear-gradient(180deg, #3737374f 38%, #ffffff00 100%);
         }
-
         .navbar {
             transition: background-image 0.5s ease-in-out;
         }
@@ -76,6 +56,7 @@
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
                         <li><a class="dropdown-item" href="{{ route('main.blogs') }}">blog</a></li>
                         <li><a class="dropdown-item" href="{{ route('main.galleries') }}">gallery</a></li>
+                        <li><a class="dropdown-item" href="{{ route('main.projeks') }}">projek/event</a></li>
                         @if(Auth::check())
                             <li><a class="dropdown-item" href="{{ route('dashboard') }}">dashboard</a></li>
                             <li><a class="dropdown-item" href="{{ route('user.profile') }}">profile</a></li>
@@ -106,7 +87,7 @@
             </div>
             <!-- Social Icons -->
             <div class="col-12 mb-3">
-                <a href="#" class="mx-2">
+                <a href="https://www.instagram.com/pklkubukami/?utm_source=ig_web_button_share_sheet" class="mx-2">
                     <i class="fab fa-instagram fa-2x text-light"></i>
                 </a>
                 <a href="#" class="mx-2">

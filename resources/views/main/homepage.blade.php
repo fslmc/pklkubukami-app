@@ -14,11 +14,11 @@
 
 @section('body')
     <!-- Hero Section -->
-    <section class="hero-section" id="hero" data-scroll="hero">
+    <section class="hero-section" id="hero" data-scroll="hero" style="--hero-background-image: url('{{ asset($heroSetting->background_image) }}');">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/pages/kubukami-logo.png') }}" alt="Company Logo" class="img-fluid">
+                    <img src="{{ asset($heroSetting->logo) }}" alt="Company Logo" class="img-fluid">
                 </div>
             </div>
             <!-- Particle Container -->
@@ -163,12 +163,12 @@
                 <!-- Blog Post 1 -->
                 @foreach ($randBlogs as $b)
                 <div class="col-lg-4 col-md-7 blog-card rounded-none" style="min-height: 200px">
-                    <div class="card shadow-sm h-100 rounded-0" style="background-image: url('{{ asset($b->thumbnail) }}'); background-size: cover; background-position: center;">
-                        <div class="card-body p-0" style="position: absolute; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.8);">
-                            <h5 class="card-title">{{ $b->judul }}</h5>
+                    <div class="card shadow-sm h-100 rounded-0" style="background-image: url('{{ asset($b->thumbnail) }}'); background-size: cover; background-position: center; width: 250px; height: 200px;">
+                        <div class="card-body h-100 p-0 align-items-end" style="position: absolute; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.8);">
+                            <h5 class="card-title ">{{ Str::limit($b->judul, 30) }}</h5>
                             <div class="row align-items-end">
                                 <div class="col-7">
-                                    <p class="card-text" style="font-size: 13px;">{{ strip_tags(Str::limit($b->konten, 200)) }}</p>
+                                    <p class="card-text" style="font-size: 13px;">{{ strip_tags(Str::limit($b->konten, 80)) }}</p>
                                 </div>
                                 <div class="col-5 text-end">
                                     <a href="{{ route('main.blog', ( $b->slug )) }}" class="btn btn-sm btn-outline-dark">Baca &gt;&gt;</a>

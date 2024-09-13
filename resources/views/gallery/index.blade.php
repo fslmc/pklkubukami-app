@@ -2,6 +2,7 @@
 
 @section('body')
 <section class="section dashboard">
+    <h1>Data Galeri</h1>
     <div class="row">
         <div class="col-12">
             <div class="card">

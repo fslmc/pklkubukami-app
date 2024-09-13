@@ -3,6 +3,7 @@
 @section('body')
 
     <section class="section dashboard">
+        <h1>Data Siswa</h1>
         <div class="row">
             <div class="col-12">
                 <div class="card">

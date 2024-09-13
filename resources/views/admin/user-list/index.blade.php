@@ -12,11 +12,12 @@
                 </div>
             @endif
     
-            <table class="table">
+            <table id="myTable" class="table datatable mt-3">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Tanggal Akun Dibuat</th>
                         <th>Current Role</th>
                         <th>Update Role</th>
                     </tr>
@@ -26,6 +27,7 @@
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->created_at }}</td>
                             <td>
                                 @foreach($user->roles as $role)
                                     {{ $role->name }}
@@ -51,5 +53,11 @@
             </table>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            $('#myTable').DataTable();
+        });
+    </script>
 
 @endsection

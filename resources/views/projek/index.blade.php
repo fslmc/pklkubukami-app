@@ -2,12 +2,12 @@
 
 @section('body')
 <section class="section dashboard">
-    <h1>Data Artikel</h1>
+    <h1>Data projek</h1>
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ route('artikel.create') }}" class="btn btn-info">Tambah Data <i class="fas fa-plus"></i></a>
+                    <a href="{{ route('projek.create') }}" class="btn btn-info">Tambah Data <i class="fas fa-plus"></i></a>
                     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
                     <script src="https://cdn.datatables.net/2.1.0/js/jquery.dataTables.min.js"></script>
                     <table id="myTable" class="table datatable mt-3">
@@ -15,7 +15,6 @@
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Judul</th>
-                                <th scope="col">Penulis</th>
                                 <th scope="col">Konten</th>
                                 <th scope="col">Thumbnail</th>
                                 <th scope="col">Aksi</th>
@@ -29,13 +28,12 @@
                             <tr>
                                 <th scope="row">{{ $no++ }}</th>
                                 <td>{{ $d->judul }}</td>
-                                <td>{{ $d->penulis }}</td>
-                                <td>{!! Str::limit(($d->konten), 100) !!}</td>
+                                <td>{{ Str::limit(($d->konten), 100) }}</td>
                                 <td>
                                     <img src="{{ asset($d->thumbnail) }}" width="35" alt="{{ $d->judul }}">
                                 </td>
                                 <td>
-                                    <a href="{{route('artikel.edit',Crypt::encrypt($d->id))}}"
+                                    <a href="{{route('projek.edit',Crypt::encrypt($d->id))}}"
                                         class="btn btn-primary btn-sm" data-bs-toggle="tooltip"
                                         data-bs-placement="top" title="Edit Siswa">
                                         <i class="fas fa-pen"></i></a>
@@ -56,7 +54,7 @@
                                         });"><i
                                         class="fas fa-trash"></i></a>
                                     <form id="delete-form-{{ $d->id }}"
-                                        action="{{ route('artikel.delete', Crypt::encrypt($d->id)) }}"
+                                        action="{{ route('projek.delete', Crypt::encrypt($d->id)) }}"
                                         method="POST" style="display: none;">
                                         @csrf
                                         @method('DELETE')

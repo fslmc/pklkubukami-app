@@ -3,6 +3,8 @@
 @section('body')
 
     <section class="section dashboard">
+        <h1>Data Tugas</h1>
+        <h5>Hanya Menampilkan Tugas Yang Dikumpulkan di Akun Saat Ini</h5>
         <div class="row">
             <div class="col-12">
                 <div class="card">

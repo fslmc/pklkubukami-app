@@ -14,6 +14,14 @@
             <p class="lead">PKL Kubukami - List Blog</p>
         </header>
         <div class="container">
+                    {{-- Formulir Pencarian --}}
+        <form action="{{ route('blog.search') }}" method="GET" class="mb-4">
+            <div class="input-group input-group-lg">
+                <input type="text" name="query" class="form-control form-control-lg" placeholder="Search blogs..." aria-label="Search" value="{{ request()->query('query') }}">
+                <button class="btn btn-primary btn-lg" type="submit">Cari</button>
+            </div>
+        </form>
+
             <div class="cards mt-5">
                 @foreach ($blogs as $blog)
                     <div class="card">
@@ -27,6 +35,9 @@
                         </a>
                     </div>
                 @endforeach
+            </div>
+            <div class="pagination mt-5">
+                {{ $blogs->render('vendor.pagination.bootstrap-5') }}
             </div>
         </div>
     </section>

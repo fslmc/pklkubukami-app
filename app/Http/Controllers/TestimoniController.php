@@ -68,7 +68,6 @@ class TestimoniController extends Controller
 
             // Simpan testimoni
             $testimoni = new Testimoni();
-            $testimoni->user_id = Auth::id();
             $testimoni->judul = $request->input('judul');
             $testimoni->content = $content;
             $testimoni->image_url = $filePath;

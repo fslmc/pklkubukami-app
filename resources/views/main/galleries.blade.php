@@ -28,7 +28,7 @@
             <div class="col-md-4 mb-4">
                 <a href="{{ route('main.gallery', ( $gallery->slug )) }}">
                     <div class="card border-0 shadow-sm rounded h-100">
-                        <img src="{{ asset($gallery->foto) }}" class="card-img-top rounded-top" alt="{{ $gallery->judul }}" style="object-fit: cover; height: 150px;"> <!-- adjust the height to your liking -->
+                        <img src="{{ asset($gallery->foto) }}" class="card-img-top rounded-top" alt="{{ Str::limit($gallery->judul, 30) }}" style="object-fit: cover; height: 150px;"> <!-- adjust the height to your liking -->
                         <div class="card-body flex-grow-1">
                             <h5 class="card-title">{{ $gallery->judul }}</h5>
                             <p class="card-text text-muted">Diunggah oleh: {{ $gallery->upload_by }}</p>
@@ -43,4 +43,5 @@
             @endforelse
         </div>
     </div>
+    
 @endsection

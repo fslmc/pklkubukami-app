@@ -146,13 +146,20 @@
           <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            @auth
               <div class="image">
                 <img src="" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
                 <a href="{{ route('user.profile') }}" class="d-block">{{ Auth::user()->name }}</a>
               </div>
-            </div>
+            @else
+              <div class="info">
+                <a href="{{ route('login') }}" class="btn btn-primary btn-block">Login</a>
+                <a href="{{ route('register') }}" class="btn btn-secondary btn-block">Register</a>
+              </div>
+            @endauth
+          </div>
 
             <!-- SidebarSearch Form -->
             <div class="form-inline">
@@ -184,6 +191,12 @@
                       <a href="{{ route('artikel.index') }}" class="nav-link active">
                         <i class="fas fa-book"></i>
                         <p>Artikel</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ route('projek.index') }}" class="nav-link active">
+                        <i class="fas fa-project-diagram"></i>
+                        <p>Projek</p>
                       </a>
                     </li>
                     <li class="nav-item">
@@ -223,7 +236,7 @@
                 {{-- Admin Only Nav --}}
                 <li class="nav-item menu-open">
                   <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fas fa-lock"></i>
                     <p>
                       Admin Only
                       <i class="right fas fa-angle-left"></i>
@@ -238,8 +251,14 @@
                     </li>
                     <li class="nav-item">
                       <a href="{{ route('admin.gdrive.index') }}" class="nav-link active">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-google-drive"></i>
                         <p>Manage Google Drive</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ route('hero.edit') }}" class="nav-link active">
+                        <i class="fas fa-image"></i>
+                        <p>Hero Section</p>
                       </a>
                     </li>
                   </ul>
@@ -457,7 +476,29 @@
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['height', ['height']],
                     ['view', ['codeview']],
-                ]
+                    // ['insert', ['picture']],
+                ],
+                onImageUpload: function(files) {
+        var file = files[0];
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var encryptedImage = CryptoJS.AES.encrypt(event.target.result, 'your_secret_key');
+            var formData = new FormData();
+            formData.append('image', encryptedImage);
+            // Upload the encrypted image to your server
+            $.ajax({
+                url: '/upload-image',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    // ...
+                }
+            });
+        };
+        reader.readAsDataURL(file);
+    }
             });
         });
     </script>

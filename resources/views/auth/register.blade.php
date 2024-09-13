@@ -54,12 +54,6 @@
                     <button class="btn btn-primary">Daftar Sekarang</button>
                 </div>
                 <div class="text-center my-3">
-                    <span>Atau Daftar Dengan</span>
-                </div>
-                <div class="d-grid">
-                    <button class="btn btn-outline-secondary"><img src="https://img.icons8.com/color/16/000000/google-logo.png"/> Daftar dengan Google</button>
-                </div>
-                <div class="text-center my-3">
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                         {{ __('Already registered?') }}
                     </a>

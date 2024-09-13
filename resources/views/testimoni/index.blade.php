@@ -2,6 +2,7 @@
 
 @section('body')
 <section class="section dashboard">
+    <h1>Data Testimoni</h1>
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -13,8 +14,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">No.</th>
-                                <th scope="col">Judul</th>
-                                <th scope="col">Content</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Testimoni</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Aksi</th>
                             </tr>
